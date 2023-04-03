@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+.pink-background{
+    background-color: #e57277;
+}
+.pink-text{
+    color: #e57277;
+}
+
+.gray-background{
+    background-color: #444;
+}
+
+.gray-text{
+    color: #444;
+}
