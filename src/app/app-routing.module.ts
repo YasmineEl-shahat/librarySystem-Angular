@@ -28,6 +28,7 @@ const routes: Routes = [
     component:LayoutComponent,
     loadChildren: () => import('./components/book/book.module').then(m => m.BookModule)
   },
+  
 ];
 
 @NgModule({
