@@ -1,0 +1,12 @@
+#team img{
+    width: 250px !important;
+    height: 250px !important;
+    border-radius: 50%;
+}
+#team p{
+    padding-top: 20px;
+    padding-left: 80px;
+
+    /* align-content: center;
+    text-align: center; */
+}
