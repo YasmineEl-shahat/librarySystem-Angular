@@ -7,8 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path:'books',component:ViewBooksComponent},
   {path:'book/details/:id',component:BookDetailsComponent},
-  
- 
+
+
   ];
 
 @NgModule({
