@@ -21,3 +21,17 @@
 .gray-text{
     color: #444;
 }
+
+.link_decoration_none{
+    text-decoration: none;
+    color: black;
+}
+
+.link_decoration_none:hover{
+    text-decoration: none;
+    color: #e57277;
+}
+
+.list_type_none{
+    list-style-type: none;
+}
