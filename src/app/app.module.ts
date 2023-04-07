@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenubarModule } from 'primeng/menubar';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MenubarModule } from 'primeng/menubar';
     AppRoutingModule,
     BrowserAnimationsModule,
     MenubarModule,
+    HttpClientModule,
   ],
   exports:[MenubarModule],
   providers: [],
