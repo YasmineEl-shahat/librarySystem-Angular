@@ -1,37 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.css';
-
-*{
-    margin: 0;
-    padding: 0;
-
+@import "~bootstrap/dist/css/bootstrap.css";
+/* @import "../node_modules/bootstrap/dist/css/bootstrap.css"; */
+@import "./assets/css/sb-admin-2.css";
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.pink-background{
-    background-color: #e57277;
+.pink-background {
+  background-color: #e57277;
 }
-.pink-text{
-    color: #e57277;
-}
-
-.gray-background{
-    background-color: #444;
+.pink-text {
+  color: #e57277;
 }
 
-.gray-text{
-    color: #444;
+.gray-background {
+  background-color: #444;
 }
 
-.link_decoration_none{
-    text-decoration: none;
-    color: black;
+.gray-text {
+  color: #444;
 }
 
-.link_decoration_none:hover{
-    text-decoration: none;
-    color: #e57277;
+.link_decoration_none {
+  text-decoration: none;
+  color: black;
 }
 
-.list_type_none{
-    list-style-type: none;
+.link_decoration_none:hover {
+  text-decoration: none;
+  color: #e57277;
+}
+
+.list_type_none {
+  list-style-type: none;
 }

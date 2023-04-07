@@ -9,6 +9,10 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenubarModule } from 'primeng/menubar';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardLayoutComponent } from './components/dashboard/dashboard-layout/dashboard-layout.component';
+import { DashSidebarComponent } from './components/dashboard/dashboard-layout/dash-sidebar/dash-sidebar.component';
+import { DashNavbarComponent } from './components/dashboard/dashboard-layout/dash-navbar/dash-navbar.component';
+import { DashFooterComponent } from './components/dashboard/dashboard-layout/dash-footer/dash-footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HeaderComponent,
     LayoutComponent,
-    
+    DashboardLayoutComponent,
+    DashSidebarComponent,
+    DashNavbarComponent,
+    DashFooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,8 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     MenubarModule,
     HttpClientModule,
   ],
-  exports:[MenubarModule],
+  exports: [MenubarModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
