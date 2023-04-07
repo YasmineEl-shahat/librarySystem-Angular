@@ -9,6 +9,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenubarModule } from 'primeng/menubar';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     MenubarModule,
-    HttpClientModule,
+    HttpClientModule, FormsModule ,ReactiveFormsModule,
   ],
-  exports:[MenubarModule],
+  exports:[MenubarModule ,FormsModule ,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
