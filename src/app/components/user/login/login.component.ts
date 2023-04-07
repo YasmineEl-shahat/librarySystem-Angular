@@ -10,12 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements  OnInit {
 
-  // loginForm=new FormGroup({  });
-  // flagList:any=[];
-  // const myFormGroup = new FormGroup({
-  //   control1: new FormControl('initialValue1'),
-  //   control2: new FormControl('initialValue2'),
-  // });
+  loginForm : FormGroup=new FormGroup({});
+
+  
 
   constructor(private _formBuilder:FormBuilder,private _httpClient:HttpClient,private router:Router) { }
 
