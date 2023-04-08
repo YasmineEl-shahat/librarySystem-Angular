@@ -1,10 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+/* @import "../node_modules/bootstrap/dist/css/bootstrap.css"; */
+@import "./assets/css/sb-admin-2.css";
 
-* {
-  margin: 0;
-  padding: 0;
+*{
+    margin: 0;
+    padding: 0;
 }
+
 .btn-pink {
   background-color: #e57277 !important;
   color: aliceblue !important;
@@ -14,6 +17,7 @@
   background-color: rgb(253, 253, 253) !important;
   color: #f2555d !important;
 }
+
 .pink-background {
   background-color: #e57277;
 }
