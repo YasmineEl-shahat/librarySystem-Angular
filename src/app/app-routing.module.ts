@@ -4,35 +4,44 @@ import { LayoutComponent } from './components/layout/layout.component';
 
 const routes: Routes = [
   {
+    path: 'dashboard',
 
-    path:'',
-    component:LayoutComponent,
-
-    loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
+    loadChildren: () =>
+      import('./components/dashboard/dashboard-routing.module').then(
+        (m) => m.DashboardRoutingModule
+      ),
   },
   {
+    path: '',
+    component: LayoutComponent,
 
-    path:'',
-    component:LayoutComponent,
-
-    loadChildren: () => import('./components/user-profile/user-profile.module').then(m => m.UserProfileModule)
+    loadChildren: () =>
+      import('./components/home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: '',
+    component: LayoutComponent,
 
-    path:'',
-    loadChildren: () => import('./components/user/user.module').then(m => m.UserModule)
+    loadChildren: () =>
+      import('./components/user-profile/user-profile.module').then(
+        (m) => m.UserProfileModule
+      ),
   },
   {
-
-    path:'',
-    component:LayoutComponent,
-    loadChildren: () => import('./components/book/book.module').then(m => m.BookModule)
+    path: '',
+    loadChildren: () =>
+      import('./components/user/user.module').then((m) => m.UserModule),
   },
-  
+  {
+    path: '',
+    component: LayoutComponent,
+    loadChildren: () =>
+      import('./components/book/book.module').then((m) => m.BookModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
