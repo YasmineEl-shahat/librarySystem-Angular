@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { ApiService } from 'src/app/services/api.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _httpClient: HttpClient,
     private router: Router,
-    private _userService: UserService
+    private _userService: UserService,
+    private _apiService:ApiService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +34,8 @@ export class LoginComponent implements OnInit {
       ],
     });
   }
+
+  //**********form validation functions*******
 
   isValidControl(name: string): boolean {
     return this.loginForm.controls[name].valid;
@@ -51,13 +55,16 @@ export class LoginComponent implements OnInit {
       this.loginForm.controls[name].errors?.[error]
     );
   }
+//*********End of form validation functions**********
+
+//*****login function*******************
   async login() {
     let user = new User();
     user.email = this.loginForm.value.email;
     user.password = this.loginForm.value.password;
 
-    await this._httpClient
-      .post('http://localhost:8080/login', user)
+    await this._apiService
+      .post('login', user)
       .subscribe(
         async (response: any) => {
           await this._userService.login(response.token, response.message);

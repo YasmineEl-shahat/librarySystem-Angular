@@ -17,4 +17,12 @@ export class UserService {
     let message = localStorage.getItem('message');
     return token != null;
   }
+
+  logout() {
+    localStorage.removeItem("Token");
+    localStorage.removeItem("message");
+    this.logged.next(false);
+  }
+
+
 }
