@@ -1,0 +1,74 @@
+.background{
+  background-image: url(./../../../../assets/images/AmTrust-Financial-University-HERO-100-W.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+}
+.content
+{
+  position: relative;
+  top: 50%;
+  left: 6%;
+  color: #fff;
+  text-shadow: 3px 3px 3px black ;
+  font-family: monospace;
+  width: 50%;
+}
+.user-info{
+background-color: #eee;
+display: flex;
+}
+.image{
+  position: relative;
+  top:-20%;
+}
+.image img{
+  width: 80%;
+  border-radius: 50%;
+ }
+ .icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #f2555d;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* right: 0%; */
+  left: 50%;
+  /* top: 50%; */
+  bottom: 10%;
+ }
+ .icon a {
+  text-decoration: none;
+  color: #eee;
+
+ }
+ .user-details h4{
+  color: #f2555d ;
+ }
+ .user-details p{
+  font-size: 16px;
+ }
+
+.navbar-nav {
+  position: absolute;
+  right: 50%;
+  left: 40%;
+  width: 66%;
+ }
+ .nav-link{
+  font-size: 20px;
+  background-color: #f2555d;
+  color: #eee;
+  border-radius: 5px;
+  margin: 5px;
+ }
+.nav-link:hover{
+  color: #514e4e ;
+  background-color: transparent;
+}
