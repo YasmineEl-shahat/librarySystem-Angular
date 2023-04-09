@@ -23,46 +23,32 @@
             <th>Id</th>
             <th>Full Name</th>
             <th>Email</th>
-            <th>Password</th>
             <th>Phone Number</th>
             <th>Birthdate</th>
             <th>Full Adress</th>
             <th>Image</th>
-            <th>timestamps</th>
+            <th>readingBooks</th>
+            <th>borrowedBooks</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>ahmed ramadan</td>
-            <td>ahmedromio233@gmail.com</td>
-            <td>fa65faf</td>
-            <td>01022011535</td>
-            <td>2011/04/25</td>
-            <td>Elmansoura</td>
-            <td>img</td>
-            <td>00.00.00.00</td>
+          <tr *ngFor="let member of memberObj">
+            <td>{{ member._id }}</td>
+            <td>{{ member.fullName }}</td>
+            <td>{{ member.email }}</td>
+            <td>{{ member.phoneNumber }}</td>
+            <td>{{ member.birthdate }}</td>
+            <td>{{ member.fullAddress?.building }} {{ member.fullAddress?.street }}, {{ member.fullAddress?.city }}</td>
+            <td>{{ member.image }}</td>
+            <td>{{ member.readingBooks }}</td>
+            <td>{{ member.borrowedBooks }}</td>
             <td>
               <a href="#" class="btn btn-info">Edit</a>
               <a href="#" class="btn btn-danger">Delete</a>
             </td>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>ahmed ramadan</td>
-            <td>ahmedromio233@gmail.com</td>
-            <td>fa65faf</td>
-            <td>01022011535</td>
-            <td>2011/04/25</td>
-            <td>Elmansoura</td>
-            <td>img</td>
-            <td>00.00.00.00</td>
-            <td>
-              <a href="#" class="btn btn-info">Edit</a>
-              <a href="#" class="btn btn-danger">Delete</a>
-            </td>
-          </tr>
+
         </tbody>
       </table>
     </div>

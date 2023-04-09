@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MemberComponent } from './member.component';
 
 
-
 @NgModule({
   declarations: [
     MemberComponent
