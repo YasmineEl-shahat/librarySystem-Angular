@@ -1,30 +1,23 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-// import jwt_decode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   logged = new BehaviorSubject<boolean>(this.isLoggedIn());
-  // user:object = {};
+  private user:object = {};
 
   constructor() {}
 
-  // getUser(){
-  //   return User;
-  // }
+  getUser(){
+    return this.user;
+  }
   login(token: string, message: string) {
     localStorage.setItem('Token', token);
-    // user : object = jwt_decode(token)
-    // {
-    //   "id": 2,
-    //   "role": "badmin",
-    //   "iat": 1681082089,
-    //   "exp": 1681092889
-    // }
-
-    localStorage.setItem('message', message);
+    this.user = jwt_decode(token)
+     localStorage.setItem('message', message);
     this.logged.next(true);
   }
   isLoggedIn(): boolean {
