@@ -1,1 +1,77 @@
-<p>activate works!</p>
+<section class="vh-100" style="background-color: #dfd8da;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="../../../../assets/images/library.png" alt="login form" class="img-fluid w-75"
+                                style="border-radius: 1rem 0 0 1rem; height:30rem" />
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+
+                                <form [formGroup]="activateForm">
+
+                                    <div class="d-flex align-items-center mb-3 pb-1">
+                                        <img src="../../../../assets/images/f.png" style="width: 50px; height: 50px;"
+                                            class="m-1">
+                                        <span class="h3 fw-bold m-2  " style="color:rgb(65, 63, 62)">Welcome to our
+                                            Library Power Of
+                                            Girls</span>
+                                    </div>
+
+                                    <h3 class="fw-normal mb-3 pb-3 text-dark" style="letter-spacing: 1px;">Active 
+                                        your account</h3>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="file" required class="form-control form-control-lg"
+                                            formControlName="image"  accept="image/png, image/gif, image/jpeg, image/jpg"
+                                            (change)="onFileSelected($event)" 
+                                            [class.is-invalid]="isInValidAndTouched('image')"
+                                            [class.is-valid]="isValidControl('image')" />
+
+                                    </div>
+                                    <div *ngIf="isInValidAndTouched('image')">
+                                        <small class="form-text text-danger"
+                                            *ngIf="isControlHasError('image','required')">required
+                                            field</small>
+                                        <small class="form-text text-danger"
+                                            *ngIf="isControlHasError('image','image')">invalid
+                                            email</small>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="password" required class="form-control form-control-lg"
+                                            placeholder="Enter Password" formControlName="password"
+                                            formControlName="password"
+                                            [class.is-invalid]="isInValidAndTouched('password')"
+                                            [class.is-valid]="isValidControl('password')" />
+
+                                    </div>
+                                    <div *ngIf="isInValidAndTouched('password')">
+                                        <small class="form-text text-danger"
+                                            *ngIf="isControlHasError('password','required')">required
+                                            field</small>
+                                        <small class="form-text text-danger"
+                                            *ngIf="isControlHasError('password','pattern')">invalid
+                                            passwor</small>
+                                    </div>
+                                    <div class="pt-1 mb-4">
+                                        <button class="btn btn-dark btn-lg w-25 p-2" type="button"
+                                            [disabled]="activateForm.invalid"
+                                            style="background-color: #e57277; outline:#e57277; border:#e57277"
+                                            (click)="activate()">Activate</button>
+                                    </div>
+
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
