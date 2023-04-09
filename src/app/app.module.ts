@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,6 @@ import { DashboardLayoutComponent } from './components/dashboard/dashboard-layou
 import { DashSidebarComponent } from './components/dashboard/dashboard-layout/dash-sidebar/dash-sidebar.component';
 import { DashNavbarComponent } from './components/dashboard/dashboard-layout/dash-navbar/dash-navbar.component';
 import { DashFooterComponent } from './components/dashboard/dashboard-layout/dash-footer/dash-footer.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
