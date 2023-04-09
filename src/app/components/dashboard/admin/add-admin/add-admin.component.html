@@ -3,101 +3,6 @@
     <div class="col col-xl-10">
       <h1>add new admin</h1>
       <div class="row g-0">
-        <!-- <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form">
-          <div class="form-group">
-            <label for="fname">First Name:</label>
-            <input
-              type="text"
-              formControlName="fname"
-              id="fname"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="lname">Last Name:</label>
-            <input
-              type="text"
-              formControlName="lname"
-              id="lname"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="birthdate">Birth Date:</label>
-            <input
-              type="date"
-              formControlName="birthdate"
-              id="birthdate"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="hiredate">Hire Date:</label>
-            <input
-              type="date"
-              formControlName="hiredate"
-              id="hiredate"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="salary">Salary:</label>
-            <input
-              type="number"
-              formControlName="salary"
-              id="salary"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input
-              type="email"
-              formControlName="email"
-              id="email"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label class="mr-2" for="basic">Basic:</label>
-            <div class="form-check-inline">
-              <input
-                type="radio"
-                formControlName="isBase"
-                id="basic-yes"
-                class="form-check-input"
-                [value]="true"
-                required
-              />
-              <label for="basic-yes" class="form-check-label">Yes</label>
-            </div>
-            <div class="form-check-inline">
-              <input
-                type="radio"
-                formControlName="isBase"
-                id="basic-no"
-                class="form-check-input"
-                [value]="false"
-                required
-              />
-              <label for="basic-no" class="form-check-label">No</label>
-            </div>
-          </div>
-          <button
-            type="submit"
-            [disabled]="addForm.invalid"
-            class="btn btn-prim"
-          >
-            Submit
-          </button>
-        </form> -->
-
         <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form">
           <div class="form-group">
             <label for="fname">First Name:</label>
@@ -135,15 +40,9 @@
               >
             </div>
           </div>
-          <!-- <mat-form-field appearance="fill">
-            <mat-label>Birth Date:</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="birthdate">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field> -->
+
           <div class="form-group">
             <label for="birthdate">Birth Date:</label>
-
             <input
               type="date"
               formControlName="birthdate"
@@ -154,6 +53,7 @@
               [class.is-valid]="isValidControl('birthdate')"
               required
             />
+
             <div class="invalid-feedback">
               <span *ngIf="isControlHasError('birthdate', 'required')"
                 >Please select your birth date</span
@@ -193,6 +93,9 @@
             <div class="invalid-feedback">
               <span *ngIf="isControlHasError('salary', 'required')"
                 >Please enter your salary</span
+              >
+              <span *ngIf="isControlHasError('salary', 'min')">
+                salary should be more than or equal to 1000</span
               >
             </div>
           </div>
@@ -252,6 +155,9 @@
               Please select whether the admin is basic or not.
             </div>
           </div>
+
+          <div class="invalid" *ngIf="errMsg">{{ errMsg }}</div>
+
           <button
             type="submit"
             [disabled]="addForm.invalid"

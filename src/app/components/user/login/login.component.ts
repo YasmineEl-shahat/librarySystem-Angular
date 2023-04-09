@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private _httpClient: HttpClient,
     private router: Router,
     private _userService: UserService,
-    private _apiService:ApiService
+    private _apiService: ApiService
   ) {}
 
   ngOnInit(): void {
@@ -55,26 +55,24 @@ export class LoginComponent implements OnInit {
       this.loginForm.controls[name].errors?.[error]
     );
   }
-//*********End of form validation functions**********
+  //*********End of form validation functions**********
 
-//*****login function*******************
+  //*****login function*******************
   async login() {
     let user = new User();
     user.email = this.loginForm.value.email;
     user.password = this.loginForm.value.password;
 
-    await this._apiService
-      .post('login', user)
-      .subscribe(
-        async (response: any) => {
-          await this._userService.login(response.token, response.message);
-          console.log(response);
-          
-          this.router.navigateByUrl('/home');
-        },
-        (error: any) => {
-          console.log(this.errMsg);
-        }
-      );
+    await this._apiService.post('login', user).subscribe(
+      async (response: any) => {
+        await this._userService.login(response.token, response.message);
+        console.log(response);
+
+        this.router.navigateByUrl('/home');
+      },
+      (error: any) => {
+        console.log(this.errMsg);
+      }
+    );
   }
 }
