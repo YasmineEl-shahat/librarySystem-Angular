@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Book } from '../models/book';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +27,7 @@ export class ApiService {
   }
 
   put(url: string, body: any) {
-    return this._httpClient.put(`${this.api_url}/${url}`, body, {
+    return this._httpClient.patch(`${this.api_url}/${url}`, body, {
       headers: this.headers,
     });
   }
