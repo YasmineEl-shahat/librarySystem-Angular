@@ -5,6 +5,7 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdminRequest } from 'src/app/models/admin';
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -15,7 +16,11 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class AddAdminComponent implements OnInit {
   addForm: FormGroup = new FormGroup({});
-  constructor(private fb: FormBuilder, private _adminService: AdminService) {}
+  constructor(
+    private fb: FormBuilder,
+    private _adminService: AdminService,
+    private router: Router
+  ) {}
   errMsg: any = '';
   ngOnInit(): void {
     this.addForm = this.fb.group({
@@ -69,7 +74,11 @@ export class AddAdminComponent implements OnInit {
     };
     const response = await this._adminService.post(admin).subscribe(
       async (response: any) => {
-        console.log(response);
+        this.router.navigateByUrl(
+          admin.isBase
+            ? '/dashboard/admin/basic-admin'
+            : '/dashboard/admin/admin'
+        );
       },
       (error: any) => {
         this.errMsg = error.error.message;
