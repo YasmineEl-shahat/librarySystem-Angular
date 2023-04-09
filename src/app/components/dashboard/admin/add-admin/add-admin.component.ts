@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from '@angular/forms';
+import { AdminRequest } from 'src/app/models/admin';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-add-admin',
@@ -8,8 +15,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddAdminComponent implements OnInit {
   addForm: FormGroup = new FormGroup({});
-  constructor(private fb: FormBuilder) {}
-
+  constructor(private fb: FormBuilder, private _adminService: AdminService) {}
+  errMsg: any = '';
   ngOnInit(): void {
     this.addForm = this.fb.group({
       fname: ['', Validators.required],
@@ -24,7 +31,7 @@ export class AddAdminComponent implements OnInit {
         Validators.required,
         Validators.pattern(/^\d{4}-\d{2}-\d{2}$/),
       ],
-      salary: ['', Validators.required, Validators.min(1000)],
+      salary: new FormControl('', [Validators.required, Validators.min(1000)]),
       email: ['', [Validators.required, Validators.email]],
       isBase: [true, Validators.requiredTrue],
     });
@@ -50,8 +57,23 @@ export class AddAdminComponent implements OnInit {
     );
   }
   //*********End of form validation functions**********
-  onSubmit() {
-    // Do something with the form data
-    console.log(this.addForm.value);
+  async onSubmit() {
+    const admin: AdminRequest = {
+      fname: this.addForm.value.fname,
+      lname: this.addForm.value.lname,
+      birthdate: this.addForm.value.birthdate,
+      hiredate: this.addForm.value.hiredate,
+      salary: this.addForm.value.salary,
+      email: this.addForm.value.email,
+      isBase: this.addForm.value.isBase,
+    };
+    const response = await this._adminService.post(admin).subscribe(
+      async (response: any) => {
+        console.log(response);
+      },
+      (error: any) => {
+        this.errMsg = error.error.message;
+      }
+    );
   }
 }

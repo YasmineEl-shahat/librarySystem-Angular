@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
+import { ApiService } from 'src/app/services/api.service';
 import { BookService } from 'src/app/services/book.service';
 
 @Component({
@@ -10,6 +11,9 @@ import { BookService } from 'src/app/services/book.service';
 export class HomeComponent {
 
 
+
+
+
   books:Book[]=[];
   latestBooks:Book[]=[];
 
@@ -17,18 +21,8 @@ export class HomeComponent {
 
   ngOnInit(): void {
     //get all books
-    this._bookService.get()
-    .subscribe(
-      (response:any)=>{
-       JSON.stringify(response.data);
-        this.books=response;
-        console.log(this.books)
-      }
-      ,
-      (error:any)=>{
-        alert("error");
-      }
-    );
+    this.getAllBooks();
+
     // get new arrived books
     this._bookService.getLatestBooks()
     .subscribe(
@@ -43,5 +37,26 @@ export class HomeComponent {
       }
     );
   }
+
+
+  getAllBooks(){
+   this._bookService.get()
+  .subscribe(
+    (response:any)=>{
+     //JSON.stringify(response);
+       this.books=response;
+       console.log(this.books);
+       console.log(response);
+
+     }
+    ,
+    (error:any)=>{
+      alert("error");
+    }
+  );
+
+  }
+
+
 
 }
