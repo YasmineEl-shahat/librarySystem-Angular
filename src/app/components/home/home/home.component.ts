@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Book } from 'src/app/model/book';
+import { Book } from 'src/app/models/book';
 import { BookService } from 'src/app/services/book.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class HomeComponent {
 
- 
+
   books:Book[]=[];
   latestBooks:Book[]=[];
 
