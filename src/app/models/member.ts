@@ -1,16 +1,5 @@
 
 export class Member {
-  // _id:number=0;
-  // fullName: string="";
-  // email: string="";
-  // password: string="";
-  // phoneNumber: string="";
-  // fullAddress?: {
-  //   city?: string;
-  //   street?: string;
-  //   building?: string;
-  // };
-  // image: string="";
 
 
 

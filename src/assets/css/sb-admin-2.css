@@ -11755,7 +11755,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 .btn-prim {
   background-color: #e57277 !important ;
-  color: whitesmoke;
+  color: whitesmoke !important;
 }
 
 /* meeeeeeeeeeeeeeeeeeeeeeeeeeeee */

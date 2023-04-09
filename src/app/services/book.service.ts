@@ -10,7 +10,7 @@ export class BookService {
 
   get() {
     return this._apiService.get(`books`)
-     
+
    }
 
    getLatestBooks(){

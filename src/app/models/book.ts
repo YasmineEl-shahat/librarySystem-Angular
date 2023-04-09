@@ -1,5 +1,5 @@
 export class Book{
-    id:number=0;
+    _id:number=0;
     title:string='';
     auther:string='';
     publisher:string='';
