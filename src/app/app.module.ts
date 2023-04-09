@@ -14,7 +14,7 @@ import { DashSidebarComponent } from './components/dashboard/dashboard-layout/da
 import { DashNavbarComponent } from './components/dashboard/dashboard-layout/dash-navbar/dash-navbar.component';
 import { DashFooterComponent } from './components/dashboard/dashboard-layout/dash-footer/dash-footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MemberModule } from './components/dashboard/member/member.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MemberModule
   ],
   exports: [MenubarModule, FormsModule, ReactiveFormsModule],
   providers: [],
