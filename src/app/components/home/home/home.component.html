@@ -48,12 +48,12 @@
           <button class="btn imgbtn">Button</button>
         </a>
         </div>
-        <div class="h5">{{book.title}}</div>
+        <div class="h5" *ngIf="book.title">{{book.title}}</div>
       <div >
         
-        <li class="list_type_none pink-text"><i class="fa fa-calendar"></i> <span class=" ms-2">20-02-2020</span> </li>
+        <li class="list_type_none pink-text"><i class="fa fa-calendar"></i> <span class=" ms-2" *ngIf="book.createdAt">{{book.createdAt |date}} </span> </li>
       </div>
-      <p>{{book.auther}}</p>
+      <p *ngIf="book.auther">Auther: {{book.auther}}</p>
     <a class="link_decoration_none "  routerLink="/book/details/1">Show More  &raquo;</a>
 
     </div>

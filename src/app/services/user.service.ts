@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  token:any=localStorage.getItem('Token');
+  token: any = localStorage.getItem('Token');
   logged = new BehaviorSubject<boolean>(this.isLoggedIn());
 
-  constructor() {}
-
+  constructor(private _apiService: ApiService) {}
 
   login(token: string, message: string) {
     localStorage.setItem('Token', token);
@@ -18,8 +18,8 @@ export class UserService {
   }
   isLoggedIn(): boolean {
     let token = localStorage.getItem('Token');
-   // let message = localStorage.getItem('message');
-   console.log(token);
+    // let message = localStorage.getItem('message');
+    console.log(token);
     return token != null;
   }
 
