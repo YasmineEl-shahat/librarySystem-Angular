@@ -13,4 +13,5 @@ export class Book{
     image:string='';
     noOfBorrowing:number=0;
     noOfReading:number=0;
+    createdAt:string=''
 }
