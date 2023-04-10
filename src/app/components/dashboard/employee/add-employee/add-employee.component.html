@@ -1,0 +1,141 @@
+<section class="container h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col col-xl-10">
+      <h1>Add new employee</h1>
+      <div class="row g-0">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form">
+          <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input
+              type="text"
+              formControlName="fname"
+              id="fname"
+              class="form-control"
+              placeholder="Enter your first name"
+              [class.is-invalid]="isInValidAndTouched('fname')"
+              [class.is-valid]="isValidControl('fname')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('fname', 'required')"
+                >Please enter your first name</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name:</label>
+            <input
+              type="text"
+              formControlName="lname"
+              id="lname"
+              class="form-control"
+              placeholder="Enter your last name"
+              [class.is-invalid]="isInValidAndTouched('lname')"
+              [class.is-valid]="isValidControl('lname')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('lname', 'required')"
+                >Please enter your last name</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="birthdate">Birth Date:</label>
+            <input
+              type="date"
+              formControlName="birthdate"
+              id="birthdate"
+              class="form-control"
+              placeholder="Select your birth date"
+              [class.is-invalid]="isInValidAndTouched('birthdate')"
+              [class.is-valid]="isValidControl('birthdate')"
+              required
+            />
+
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('birthdate', 'required')"
+                >Please select your birth date</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="hiredate">Hire Date:</label>
+            <input
+              type="date"
+              formControlName="hiredate"
+              id="hiredate"
+              class="form-control"
+              placeholder="Select your hire date"
+              [class.is-invalid]="isInValidAndTouched('hiredate')"
+              [class.is-valid]="isValidControl('hiredate')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('hiredate', 'required')"
+                >Please select your hire date</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="salary">Salary:</label>
+            <input
+              type="number"
+              formControlName="salary"
+              id="salary"
+              class="form-control"
+              placeholder="Enter your salary"
+              [class.is-invalid]="isInValidAndTouched('salary')"
+              [class.is-valid]="isValidControl('salary')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('salary', 'required')"
+                >Please enter your salary</span
+              >
+              <span *ngIf="isControlHasError('salary', 'min')">
+                salary should be more than or equal to 1000</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              formControlName="email"
+              id="email"
+              class="form-control"
+              placeholder="Enter your email address"
+              [class.is-invalid]="isInValidAndTouched('email')"
+              [class.is-valid]="isValidControl('email')"
+              required
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="isControlHasError('email', 'required')"
+            >
+              Email is required.
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="isControlHasError('email', 'email')"
+            >
+              Invalid email format.
+            </div>
+          </div>
+
+          <div class="invalid" *ngIf="errMsg">{{ errMsg }}</div>
+
+          <button
+            type="submit"
+            [disabled]="addForm.invalid"
+            class="btn btn-prim"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

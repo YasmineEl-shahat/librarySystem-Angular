@@ -38,7 +38,6 @@ import { HomeModule } from './components/home/home.module';
     ReactiveFormsModule,
     MemberModule,
     HomeModule,
-    
   ],
   exports: [MenubarModule, FormsModule, ReactiveFormsModule],
   providers: [],
