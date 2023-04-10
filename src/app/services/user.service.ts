@@ -5,8 +5,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
+  token:any=localStorage.getItem('Token');
   logged = new BehaviorSubject<boolean>(this.isLoggedIn());
-  user: object = {};
 
   constructor() {}
 
@@ -18,7 +18,8 @@ export class UserService {
   }
   isLoggedIn(): boolean {
     let token = localStorage.getItem('Token');
-    let message = localStorage.getItem('message');
+   // let message = localStorage.getItem('message');
+   console.log(token);
     return token != null;
   }
 

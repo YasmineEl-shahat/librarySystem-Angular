@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
         await this._userService.login(response.token, response.message);
         console.log(response);
 
-        // this.router.navigateByUrl('/home');
+         this.router.navigateByUrl('/home');
       },
       (error: any) => {
         console.log(this.errMsg);
