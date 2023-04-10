@@ -34,7 +34,13 @@ export class EditAdminComponent implements OnInit {
     this.s = this.activatedRoute.params.subscribe(async (a) => {
       await this.adminService.get(a['id']).subscribe(
         (result: any) => {
+          result.data.image = 'http:\\localhost:8080\\' + result.data.image;
+          console.log(result.data);
+          result.data.birthdate = new Date(result.data.birthdate)
+            .toISOString()
+            .slice(0, 10);
           this.adminDetails = result.data;
+
           this.id = result.data._id;
         },
         (error: any) => {
@@ -45,16 +51,19 @@ export class EditAdminComponent implements OnInit {
 
     // form validation
     this.editForm = this.fb.group({
-      fname: ['', Validators.required],
-      lname: ['', Validators.required],
+      fname: [this.adminDetails?.fname, Validators.required],
+      lname: [this.adminDetails?.lname, Validators.required],
       birthdate: [
-        '',
+        this.adminDetails?.birthdate,
         Validators.required,
         Validators.pattern(/^\d{4}-\d{2}-\d{2}$/),
       ],
-      password: [''],
-      salary: new FormControl('', [Validators.required, Validators.min(1000)]),
-      email: ['', [Validators.required]],
+      password: [],
+      salary: new FormControl(this.adminDetails?.salary, [
+        Validators.required,
+        Validators.min(1000),
+      ]),
+      email: [this.adminDetails?.email, [Validators.required]],
     });
   }
 
@@ -79,12 +88,6 @@ export class EditAdminComponent implements OnInit {
     );
   }
   //*********End of form validation functions**********
-
-  // toDate(date: string) {
-  //   console.log(new Date(date));
-
-  //   return new Date(date);
-  // }
 
   adminImage: File | any = null;
   adminImagePreview: string = '';
