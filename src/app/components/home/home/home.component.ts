@@ -33,7 +33,7 @@ export class HomeComponent {
       }
       ,
       (error:any)=>{
-        alert("error");
+       // alert("error");
       }
     );
   }
@@ -51,7 +51,7 @@ export class HomeComponent {
      }
     ,
     (error:any)=>{
-      alert("error");
+    //  alert("error");
     }
   );
 
