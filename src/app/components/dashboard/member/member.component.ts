@@ -31,6 +31,19 @@ export class MemberComponent implements OnInit {
       });
     }
   }
+  // deleteMember(id: number | undefined, e: any) {
+  //   e.preventDefault();
+  //   if (id) {
+  //     const confirmed = confirm(`Are you sure you want to delete member with id ${id}?`);
+  //     if (confirmed) {
+  //       this.memberService.deleteMember(id).subscribe((response: any) => {
+  //         alert(`Deleted member with id ${id} ${response.data} `);
+  //       });
+  //     }
+  //   }
+  // }
+
+
 
 
 }
