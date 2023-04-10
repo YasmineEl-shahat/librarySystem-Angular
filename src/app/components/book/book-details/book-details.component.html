@@ -27,13 +27,13 @@
           class="details d-flex justify-content-center align-items-center col-xs-12 col-sm-12 col-md-4 col-lg-3"
         >
           <div class="info">
-            <h4 class="title">Eos Lobortis</h4>
-            <P> Author : </P>
-            <P> Publisher : </P>
-            <P> Publishing Date : </P>
-            <P> Category : </P>
-            <P> Edition : </P>
-            <P> No Of Pages : </P>
+            <p class="title pink-text">Eos Lobortis</p>
+            <P> Author : <span>{{ book.auther }}</span> </P>
+            <P> Publisher : <span>{{ book.publisher }}</span> </P>
+            <P> Publishing Date : <span>{{ book.publishingDate | date:'yyyy-MM-dd'}}</span> </P>
+            <P> Category : <span>{{ book.category }}</span></P>
+            <P> Edition : <span>{{ book.edition }}</span></P>
+            <P> No Of Pages : <span>{{ book.pages }}</span> </P>
           </div>
         </div>
       </div>
