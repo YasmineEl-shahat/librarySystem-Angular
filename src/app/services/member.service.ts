@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import {Member } from 'src/app/models/member';
+
+import { HttpClient } from '@angular/common/http';
 // import { Observable } from 'rxjs';
 // import { HttpClient } from '@angular/common/http';
 // import { Member } from '../models/member';
@@ -30,9 +33,10 @@ export class MemberService {
     return this._apiService.get(`members`);
   }
 
-  // getById(id) {
-  //   return this._apiService.get(`members/${id}`);
-  // }
+  getById(id:any) {
+    console.log(id);
+    return this._apiService.getById(`members/`, id);
+  }
   // add(member) {
   //   return this._apiService.post(`members`, member);
   // }

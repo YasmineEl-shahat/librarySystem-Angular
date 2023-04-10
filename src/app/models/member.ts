@@ -19,7 +19,9 @@ export class Member {
   borrowedBooks?: string[];
   createdAt?: Date;
   updatedAt?: Date;
-
+  getFullAddress(): string {
+    return `${this.fullAddress?.city} , ${this.fullAddress?.street}, ${this.fullAddress?.building}`;
+  }
 }
 
 

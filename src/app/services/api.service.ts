@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Book } from '../models/book';
+import {Member } from 'src/app/models/member';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,9 @@ export class ApiService {
   }
 
   getById(url: string , id:any) {
-    return this._httpClient.get(`${this.api_url}/${url}/${id}`, {
+    // console.log(id);
+    // console.log(`${this.api_url}/${url}${id}`);
+    return this._httpClient.get(`${this.api_url}/${url}${id}`, {
       headers: this.headers,
     });
   }
