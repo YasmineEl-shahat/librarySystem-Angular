@@ -106,22 +106,43 @@ export class EditAdminComponent implements OnInit {
   }
   async onSubmit() {
     const admin: AdminRequest = {};
+    const formData = new FormData();
 
-    if (this.adminImage) admin.image = this.adminImage;
-    if (this.editForm.controls['fname'].dirty)
+    if (this.adminImage) {
+      formData.append('image', this.adminImage, this.adminImage.name);
+    }
+
+    if (this.editForm.controls['fname'].dirty) {
       admin.fname = this.editForm.value.fname;
-    if (this.editForm.controls['lname'].dirty)
-      admin.lname = this.editForm.value.lname;
-    if (this.editForm.controls['password'].dirty)
-      admin.password = this.editForm.value.password;
-    if (this.editForm.controls['birthdate'].dirty)
-      admin.birthdate = this.editForm.value.birthdate;
-    if (this.editForm.controls['salary'].dirty)
-      admin.salary = this.editForm.value.salary;
-    if (this.editForm.controls['email'].dirty)
-      admin.email = this.editForm.value.email;
+      formData.append('fname', this.editForm.value.fname);
+    }
 
-    const response = await this.adminService.patch(this.id, admin).subscribe(
+    if (this.editForm.controls['lname'].dirty) {
+      admin.lname = this.editForm.value.lname;
+      formData.append('lname', this.editForm.value.lname);
+    }
+
+    if (this.editForm.controls['password'].dirty) {
+      admin.password = this.editForm.value.password;
+      formData.append('password', this.editForm.value.password);
+    }
+
+    if (this.editForm.controls['birthdate'].dirty) {
+      admin.birthdate = this.editForm.value.birthdate;
+      formData.append('birthdate', this.editForm.value.birthdate);
+    }
+
+    if (this.editForm.controls['salary'].dirty) {
+      admin.salary = this.editForm.value.salary;
+      formData.append('salary', this.editForm.value.salary);
+    }
+
+    if (this.editForm.controls['email'].dirty) {
+      admin.email = this.editForm.value.email;
+      formData.append('email', this.editForm.value.email);
+    }
+
+    const response = await this.adminService.patch(this.id, formData).subscribe(
       async (response: any) => {
         this.router.navigateByUrl(
           this.adminDetails?.isBase

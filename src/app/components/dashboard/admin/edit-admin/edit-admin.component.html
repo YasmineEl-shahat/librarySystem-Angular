@@ -3,7 +3,12 @@
     <div class="col col-xl-10">
       <h1>Edit admin</h1>
       <div class="row g-0">
-        <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form">
+        <form
+          [formGroup]="editForm"
+          (ngSubmit)="onSubmit()"
+          class="form"
+          enctype="multipart/form-data"
+        >
           <div class="form-group">
             <label for="fname">First Name:</label>
             <input
