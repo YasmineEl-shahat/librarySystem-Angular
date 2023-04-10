@@ -20,6 +20,12 @@ export class ApiService {
     });
   }
 
+  getById(url: string , id:any) {
+    return this._httpClient.get(`${this.api_url}/${url}/${id}`, {
+      headers: this.headers,
+    });
+  }
+  
   post(url: string, body: any) {
     return this._httpClient.post(`${this.api_url}/${url}`, body, {
       headers: this.headers,
