@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
-import { UserService } from 'src/app/services/user.service';
+import { UserCredintialService } from 'src/app/services/user-credintial.service';
+
 
 @Component({
   selector: 'app-activate',
@@ -14,11 +15,12 @@ export class ActivateComponent {
   activateForm: FormGroup = new FormGroup({});
   errMsg: any = [];
   image: File | null = null;
+  user={};
   constructor(
     private _formBuilder: FormBuilder,
     private _httpClient: HttpClient,
     private router: Router,
-    private _userService: UserService,
+    private userCredintialService: UserCredintialService,
     private _apiService: ApiService
   ) {}
 
@@ -33,6 +35,8 @@ export class ActivateComponent {
         ],
       ],
     });
+    console.log(this.userCredintialService.getCredintial());
+    
   }
 
   //**********form validation functions*******
@@ -67,24 +71,26 @@ export class ActivateComponent {
   async activate() {
    
 
-    const formData = new FormData();
+    // const formData = new FormData();
    
-    if(this.image != null){
-      formData.append('image', this.image   , this.image?.name);
-    }
-    formData.append('image', this.activateForm.value.password );
+    // if(this.image != null){
+    //   formData.append('image', this.image   , this.image?.name);
+    // }
+    // formData.append('image', this.activateForm.value.password );
+    
+    // this.user =this._userService.getUser();
+    // console.log(this.user);
+    //  this._apiService.post(`${this.user.role}/activate`,formData).subscribe(
+    //    (response: any) => {
+    //      this._userService.login(response.token, response.message);
+    //     console.log(response);
 
-     this._apiService.post('admin/activate',formData).subscribe(
-       (response: any) => {
-         this._userService.login(response.token, response.message);
-        console.log(response);
-
-        this.router.navigateByUrl('/home');
-      },
-      (error: any) => {
-        console.log(this.errMsg);
-      }
-    );
+    //     this.router.navigateByUrl('/home');
+    //   },
+    //   (error: any) => {
+    //     console.log(this.errMsg);
+    //   }
+    // );
   }
    
 }
