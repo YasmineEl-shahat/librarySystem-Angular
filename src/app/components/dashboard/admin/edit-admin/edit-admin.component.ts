@@ -121,7 +121,7 @@ export class EditAdminComponent implements OnInit {
     if (this.editForm.controls['email'].dirty)
       admin.email = this.editForm.value.email;
 
-    const response = await this.adminService.put(this.id, admin).subscribe(
+    const response = await this.adminService.patch(this.id, admin).subscribe(
       async (response: any) => {
         this.router.navigateByUrl(
           this.adminDetails?.isBase

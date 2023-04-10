@@ -7,7 +7,7 @@ import jwt_decode from 'jwt-decode';
 export class UserCredintialService {
   private encryptToken: any;
   constructor() {}
-  getCredintial() {
+  getCredintial(): object {
     this.encryptToken = localStorage.getItem('Token');
     return jwt_decode(this.encryptToken);
   }

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Book } from '../models/book';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   api_url = 'http://localhost:8080';
-  token: any = localStorage.getItem('Token');
+  token = new BehaviorSubject<any>(localStorage.getItem('Token')).value;
   headers = new HttpHeaders()
     .set('Authorization', `Bearer ${this.token}`)
     .set('Access-Control-Allow-Origin', '*');
@@ -18,6 +18,7 @@ export class ApiService {
     return this._httpClient.get(`${this.api_url}/${url}`, {
       headers: this.headers,
     });
+
   }
 
   post(url: string, body: any) {
@@ -26,7 +27,7 @@ export class ApiService {
     });
   }
 
-  put(url: string, body: any) {
+  patch(url: string, body: any) {
     return this._httpClient.patch(`${this.api_url}/${url}`, body, {
       headers: this.headers,
     });
