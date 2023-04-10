@@ -16,7 +16,7 @@ export class UserService {
   // }
   login(token: string, message: string) {
     localStorage.setItem('Token', token);
-    // user : object = jwt_decode(token)
+    // user = jwt_decode(token)
     // {
     //   "id": 2,
     //   "role": "badmin",
