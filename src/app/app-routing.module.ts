@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
+import { IsLoginGuard } from './guards/is-login.guard';
 
 const routes: Routes = [
   {
@@ -14,14 +15,14 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-
+    canActivate:[IsLoginGuard],
     loadChildren: () =>
       import('./components/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: '',
     component: LayoutComponent,
-
+    canActivate:[IsLoginGuard],
     loadChildren: () =>
       import('./components/user-profile/user-profile.module').then(
         (m) => m.UserProfileModule
@@ -29,12 +30,14 @@ const routes: Routes = [
   },
   {
     path: '',
+    
     loadChildren: () =>
       import('./components/user/user.module').then((m) => m.UserModule),
   },
   {
     path: '',
     component: LayoutComponent,
+    canActivate:[IsLoginGuard],
     loadChildren: () =>
       import('./components/book/book.module').then((m) => m.BookModule),
   },
