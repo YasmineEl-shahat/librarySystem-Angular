@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-// import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 // import { HttpClient } from '@angular/common/http';
 // import { Member } from '../models/member';
 @Injectable({
@@ -42,4 +42,12 @@ export class MemberService {
   // delete(id) {
   //   return this._apiService.delete(`members/${id}`);
   // }
+  // deleteMember(id: number) {
+  //   return this._apiService.delete(`members/${id}`);
+  // }
+  deleteMember(id: number): Observable<any> {
+    return this._apiService.delete(`members/${id}`);
+  }
+
+
 }

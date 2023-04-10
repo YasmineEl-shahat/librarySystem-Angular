@@ -22,5 +22,16 @@ export class MemberComponent implements OnInit {
       // console.log(members);
     });
   }
+
+  deleteMember(id: number | undefined) {
+    if (id) {
+      this.memberService.deleteMember(id).subscribe((response: any) => {
+        confirm(`Deleted member with id ${id} ${response.data} `);
+
+      });
+    }
+  }
+
+
 }
 
