@@ -26,7 +26,7 @@ export class ApiService {
     });
   }
 
-  put(url: string, body: any) {
+  patch(url: string, body: any) {
     return this._httpClient.patch(`${this.api_url}/${url}`, body, {
       headers: this.headers,
     });

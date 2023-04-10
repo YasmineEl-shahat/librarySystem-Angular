@@ -16,7 +16,7 @@ export class AdminService {
   post(body: any) {
     return this.apiService.post(`admins`, body);
   }
-  put(id: number, body: any) {
-    return this.apiService.put(`admins/${id}`, body);
+  patch(id: number, body: any) {
+    return this.apiService.patch(`admins/${id}`, body);
   }
 }
