@@ -16,4 +16,8 @@ export class BookService {
    getLatestBooks(){
     return this._apiService.get(`newBooks`)
    }
+   getBook(id: string){
+    return this._apiService.get(`books/${id}`);
+  }
+
 }

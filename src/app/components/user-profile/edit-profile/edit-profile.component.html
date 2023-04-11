@@ -1,1 +1,42 @@
-<p>edit-profile works!</p>
+<form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input type="text" class="form-control" id="fullName" formControlName="fullName" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password" required>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber" required>
+    </div>
+    <div class="form-group">
+      <label for="birthdate">Birthdate</label>
+      <input type="date" class="form-control" id="birthdate" formControlName="birthdate" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email" required>
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" formControlName="city" required>
+    </div>
+    <div class="form-group">
+      <label for="street">Street</label>
+      <input type="text" class="form-control" id="street" formControlName="street" required>
+    </div>
+    <div class="form-group">
+      <label for="building">Building</label>
+      <input type="text" class="form-control" id="building" formControlName="building" required>
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" class="form-control-file" id="image" name="image" (change)="onFileSelected($event)">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Update</button>
+  
+  </form>
+    

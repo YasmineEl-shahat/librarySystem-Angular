@@ -7,23 +7,23 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AdminRequest } from 'src/app/models/admin';
-import { AdminService } from 'src/app/services/admin.service';
+import { EmployeeRequest } from 'src/app/models/employee';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
-  selector: 'app-edit-admin',
-  templateUrl: './edit-admin.component.html',
-  styleUrls: ['./edit-admin.component.css'],
+  selector: 'app-edit-employee',
+  templateUrl: './edit-employee.component.html',
+  styleUrls: ['./edit-employee.component.css'],
 })
-export class EditAdminComponent implements OnInit {
+export class EditEmployeeComponent implements OnInit {
   s: Subscription | null = null;
-  adminDetails: AdminRequest | null = null;
+  employeeDetails: EmployeeRequest | null = null;
   errMsg: any = '';
   editForm: FormGroup = new FormGroup({});
   id: number = 1;
 
   constructor(
-    public adminService: AdminService,
+    public EmployeeService: EmployeeService,
     public activatedRoute: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
@@ -32,14 +32,14 @@ export class EditAdminComponent implements OnInit {
   ngOnInit(): void {
     // get details
     this.s = this.activatedRoute.params.subscribe(async (a) => {
-      await this.adminService.get(a['id']).subscribe(
+      await this.EmployeeService.get(a['id']).subscribe(
         (result: any) => {
           result.data.image = 'http:\\localhost:8080\\' + result.data.image;
           console.log(result.data);
           result.data.birthdate = new Date(result.data.birthdate)
             .toISOString()
             .slice(0, 10);
-          this.adminDetails = result.data;
+          this.employeeDetails = result.data;
 
           this.id = result.data._id;
         },
@@ -51,19 +51,19 @@ export class EditAdminComponent implements OnInit {
 
     // form validation
     this.editForm = this.fb.group({
-      fname: [this.adminDetails?.fname, Validators.required],
-      lname: [this.adminDetails?.lname, Validators.required],
+      fname: [this.employeeDetails?.fname, Validators.required],
+      lname: [this.employeeDetails?.lname, Validators.required],
       birthdate: [
-        this.adminDetails?.birthdate,
+        this.employeeDetails?.birthdate,
         Validators.required,
         Validators.pattern(/^\d{4}-\d{2}-\d{2}$/),
       ],
       password: [],
-      salary: new FormControl(this.adminDetails?.salary, [
+      salary: new FormControl(this.employeeDetails?.salary, [
         Validators.required,
         Validators.min(1000),
       ]),
-      email: [this.adminDetails?.email, [Validators.required]],
+      email: [this.employeeDetails?.email, [Validators.required]],
     });
   }
 
@@ -89,27 +89,27 @@ export class EditAdminComponent implements OnInit {
   }
   //*********End of form validation functions**********
 
-  adminImage: File | any = null;
-  adminImagePreview: string = '';
+  employeeImage: File | any = null;
+  employeeImagePreview: string = '';
 
   onImageSelected(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     if (inputElement.files && inputElement.files.length > 0) {
       const file = inputElement.files[0];
-      this.adminImage = file;
+      this.employeeImage = file;
       const reader = new FileReader();
       reader.onload = () => {
-        this.adminImagePreview = reader.result as string;
+        this.employeeImagePreview = reader.result as string;
       };
       reader.readAsDataURL(file);
     }
   }
   async onSubmit() {
-    const admin: AdminRequest = {};
+    const admin: EmployeeRequest = {};
     const formData = new FormData();
 
-    if (this.adminImage) {
-      formData.append('image', this.adminImage, this.adminImage.name);
+    if (this.employeeImage) {
+      formData.append('image', this.employeeImage, this.employeeImage.name);
     }
 
     if (this.editForm.controls['fname'].dirty) {
@@ -142,13 +142,12 @@ export class EditAdminComponent implements OnInit {
       formData.append('email', this.editForm.value.email);
     }
 
-    const response = await this.adminService.patch(this.id, formData).subscribe(
+    const response = await this.EmployeeService.patch(
+      this.id,
+      formData
+    ).subscribe(
       async (response: any) => {
-        this.router.navigateByUrl(
-          this.adminDetails?.isBase
-            ? '/dashboard/admin/basic-admin'
-            : '/dashboard/admin/admin'
-        );
+        this.router.navigateByUrl('/dashboard/employee/employee');
       },
       (error: any) => {
         this.errMsg = error.error.message;

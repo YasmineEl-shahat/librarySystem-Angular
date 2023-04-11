@@ -8,6 +8,9 @@ import { MemberComponent } from './member/member.component';
 import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 import { AdminModule } from './admin/admin.module';
 import { EditAdminComponent } from './admin/edit-admin/edit-admin.component';
+import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
+import { EmployeeModule } from './employee/employee.module';
+import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.component';
 
 const routes: Routes = [
   {
@@ -19,13 +22,15 @@ const routes: Routes = [
       { path: 'admin/add-admin', component: AddAdminComponent },
       { path: 'admin/edit-admin/:id', component: EditAdminComponent },
       { path: 'employee/employee', component: EmployeeComponent },
+      { path: 'employee/add-employee', component: AddEmployeeComponent },
+      { path: 'employee/edit-employee/:id', component: EditEmployeeComponent },
       { path: 'member/member', component: MemberComponent },
     ],
   },
 ];
 @NgModule({
   declarations: [],
-  imports: [AdminModule, RouterModule.forChild(routes)],
+  imports: [AdminModule, EmployeeModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class DashboardRoutingModule {}

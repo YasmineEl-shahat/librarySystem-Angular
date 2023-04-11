@@ -4,19 +4,19 @@ import { ApiService } from './api.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AdminService {
+export class EmployeeService {
   constructor(private apiService: ApiService) {}
 
   getAll() {
-    return this.apiService.get(`admins`);
+    return this.apiService.get(`employees`);
   }
   get(id: number) {
-    return this.apiService.get(`admins/${id}`);
+    return this.apiService.get(`employees/${id}`);
   }
   post(body: any) {
-    return this.apiService.post(`admins`, body);
+    return this.apiService.post(`employees`, body);
   }
   patch(id: number, body: any) {
-    return this.apiService.patch(`admins/${id}`, body);
+    return this.apiService.patch(`employees/${id}`, body);
   }
 }

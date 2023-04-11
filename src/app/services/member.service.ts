@@ -4,6 +4,7 @@ import {Member } from 'src/app/models/member';
 
 import { HttpClient } from '@angular/common/http';
 // import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 // import { HttpClient } from '@angular/common/http';
 // import { Member } from '../models/member';
 @Injectable({
@@ -46,4 +47,18 @@ export class MemberService {
   // delete(id) {
   //   return this._apiService.delete(`members/${id}`);
   // }
+  // deleteMember(id: number) {
+  //   return this._apiService.delete(`members/${id}`);
+  // }
+  deleteMember(id: number): Observable<any> {
+    return this._apiService.delete(`members/${id}`);
+  }
+
+  getBorrowedBooks(id: number): Observable<any> {
+    return this._apiService.getBook(`borrowedBooks/list?id=`, id);
+  }
+
+  getreadingBooks(id: number): Observable<any> {
+    return this._apiService.getBook(`readingBooks/list?id=`,id);
+  }
 }
