@@ -42,13 +42,10 @@ export class MemberComponent implements OnInit {
   }
 
   search(): void {
-
-    console.log('searchTerm:', this.searchTerm);
     if (this.searchTerm.length > 0) {
       this.memberService.getAll().subscribe((members: any) => {
         this.memberObj = members.data.filter((member: Member) =>
           member.email?.toLowerCase().includes(this.searchTerm[0].toLowerCase())
-
         );
         this.searchTerm = [];
       });
@@ -59,27 +56,6 @@ export class MemberComponent implements OnInit {
 
 
 
-
-
 }
-
-
-
-
-
-
-  // search(): void {
-  //   if (this.searchTerm.length > 0) {
-  //     this.memberService.memberSearch(this.searchTerm).subscribe((response: any) => {
-  //       this.memberObj = response.data;
-  //       alert(this.memberObj);
-  //     });
-  //   } else {
-  //     this.getMembers();
-  //   }
-  // }
-
-
-
 
 
