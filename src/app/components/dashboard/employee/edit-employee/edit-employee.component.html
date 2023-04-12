@@ -19,7 +19,7 @@
               placeholder="Enter your first name"
               [class.is-invalid]="isInValidAndTouched('fname')"
               [class.is-valid]="isValidControl('fname')"
-              value="{{ adminDetails?.fname }}"
+              value="{{ employeeDetails?.fname }}"
             />
             <div class="invalid-feedback">
               <span *ngIf="isControlHasError('fname', 'required')"
@@ -38,7 +38,7 @@
               [class.is-invalid]="isInValidAndTouched('lname')"
               [class.is-valid]="isValidControl('lname')"
               required
-              value="{{ adminDetails?.lname }}"
+              value="{{ employeeDetails?.lname }}"
             />
             <div class="invalid-feedback">
               <span *ngIf="isControlHasError('lname', 'required')"
@@ -58,7 +58,7 @@
               [class.is-invalid]="isInValidAndTouched('birthdate')"
               [class.is-valid]="isValidControl('birthdate')"
               required
-              value="{{ adminDetails?.birthdate }}"
+              value="{{ employeeDetails?.birthdate }}"
             />
 
             <div class="invalid-feedback">
@@ -77,7 +77,7 @@
               placeholder="Enter your salary"
               [class.is-invalid]="isInValidAndTouched('salary')"
               [class.is-valid]="isValidControl('salary')"
-              value="{{ adminDetails?.salary }}"
+              value="{{ employeeDetails?.salary }}"
             />
             <div class="invalid-feedback">
               <span *ngIf="isControlHasError('salary', 'required')"
@@ -98,7 +98,7 @@
               placeholder="Enter your email address"
               [class.is-invalid]="isInValidAndTouched('email')"
               [class.is-valid]="isValidControl('email')"
-              value="{{ adminDetails?.email }}"
+              value="{{ employeeDetails?.email }}"
               required
             />
             <div
@@ -128,8 +128,8 @@
           <div class="form-group">
             <label for="image">Admin Image:</label><br />
             <img
-              *ngIf="adminDetails?.image"
-              [src]="adminDetails?.image"
+              *ngIf="employeeDetails?.image"
+              [src]="employeeDetails?.image"
               alt="Admin Image"
               width="150"
               height="150"

@@ -4,9 +4,11 @@
     border-radius: 50%;
 }
 #team p{
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 80px;
-
-    /* align-content: center;
-    text-align: center; */
+    font-family: fantasy;
+}
+.title_font{
+    font-size: x-large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }

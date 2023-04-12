@@ -4,6 +4,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 const routes: Routes = [
   {path:'profile',component:ProfileComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule, ReactiveFormsModule
   ]
 })
 export class UserProfileModule { }

@@ -12,14 +12,21 @@ export class Member {
   fullAddress?: {
     city?: string;
     street?: string;
-    building?: string;
+    building?: Number;
   };
   image: string="";
   readingBooks?: string[];
   borrowedBooks?: string[];
   createdAt?: Date;
   updatedAt?: Date;
+  
 
+
+
+  // address?: string=`${this.fullAddress?.city} , ${this.fullAddress?.street}, ${this.fullAddress?.building}`
+  // getFullAddress(): string {
+  //   return `${this.fullAddress?.city} , ${this.fullAddress?.street}, ${this.fullAddress?.building}`;
+  // }
 }
 
 

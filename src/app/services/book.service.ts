@@ -19,4 +19,5 @@ export class BookService {
    getBook(id: string){
     return this._apiService.get(`books/${id}`);
   }
+
 }
