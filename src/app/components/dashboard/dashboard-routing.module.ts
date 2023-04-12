@@ -8,6 +8,7 @@ import { MemberComponent } from './member/member.component';
 import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 import { AdminModule } from './admin/admin.module';
 import { EditAdminComponent } from './admin/edit-admin/edit-admin.component';
+import { IsLoginGuard } from 'src/app/guards/is-login.guard';
 
 const routes: Routes = [
   {

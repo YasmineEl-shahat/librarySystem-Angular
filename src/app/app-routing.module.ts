@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { IsLoginGuard } from './guards/is-login.guard';
+import { IsAdminGuard } from './guards/is-admin.guard';
+import { IsStaffGuard } from './guards/is-staff.guard';
 
 const routes: Routes = [
   {
     path: 'dashboard',
-
+    canActivate:[IsLoginGuard,IsStaffGuard],
     loadChildren: () =>
       import('./components/dashboard/dashboard-routing.module').then(
         (m) => m.DashboardRoutingModule
