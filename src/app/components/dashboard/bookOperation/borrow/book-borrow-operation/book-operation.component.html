@@ -1,0 +1,58 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Member</h1>
+  <a href="#" class="d-none d-sm-inline-block btn btn-sm   shadow-sm"
+    style="background-color: #444 ; color: white;"><i class="fas fa-download fa-sm text-dark-50"></i> Add Borrow Operation</a
+  >
+</div>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="dataTable"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>BookId</th>
+            <th>MemberId</th>
+            <th>EmployeeId</th>
+            <th>DeadlineDate</th>
+            <th>ReturnDate</th>
+            <th>Type</th>
+            <th>Return</th>
+            <th>CreatedAt</th>
+            <th>UpdatedAt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let operation of operations">
+            <td>{{ operation._id }}</td>
+            <td>{{ operation.bookId }}</td>
+            <td>{{ operation.memberId }}</td>
+            <td>{{ operation.employeeId }}</td>
+            <td>{{ operation.deadlineDate }}</td>
+            <td>{{ operation.returnDate }}</td>
+            <td>{{ operation.type }} </td>
+            <td>{{ operation.return }}</td>
+            <td>{{ operation.createdAt }}</td>
+            <td>{{ operation.updatedAt }}</td>
+            <td>
+              <a href="#" class="btn btn-info">Edit</a>
+            
+              <button class="btn btn-danger" >Delete</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
