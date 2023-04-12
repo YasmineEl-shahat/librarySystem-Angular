@@ -12,7 +12,7 @@ export class Member {
   fullAddress?: {
     city?: string;
     street?: string;
-    building?: string;
+    building?: Number;
   };
   image: string="";
   readingBooks?: string[];

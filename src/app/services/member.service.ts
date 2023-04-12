@@ -41,8 +41,8 @@ export class MemberService {
   // add(member) {
   //   return this._apiService.post(`members`, member);
   // }
-  // update(id, member) {
-  //   return this._apiService.put(`members/${id}`, member);
+  // update(id:any, member:any): Observable<any> {
+  //   return this._apiService.patch(`members/${id}`, member);
   // }
   // delete(id) {
   //   return this._apiService.delete(`members/${id}`);
@@ -60,5 +60,10 @@ export class MemberService {
 
   getreadingBooks(id: number): Observable<any> {
     return this._apiService.getBook(`readingBooks/list?id=`,id);
+  }
+
+
+  updateProfile(id: number, body: any) {
+    return this._apiService.patch(`members/${id}`, body);
   }
 }
