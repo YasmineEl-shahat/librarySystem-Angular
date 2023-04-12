@@ -1,29 +1,21 @@
-
 export class Member {
-
-
-
   _id?: number;
   fullName?: string;
   email?: string;
   password?: string;
-  phoneNumber?: string="";
+  phoneNumber?: string = '';
   birthdate?: string;
   fullAddress?: {
     city?: string;
     street?: string;
     building?: string;
   };
-  image: string="";
+  image?: string = '';
   readingBooks?: string[];
   borrowedBooks?: string[];
   createdAt?: Date;
   updatedAt?: Date;
-
 }
-
-
-
 
 // import { Validators } from '@angular/forms';
 
