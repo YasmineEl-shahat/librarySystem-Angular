@@ -17,6 +17,7 @@ import { DashFooterComponent } from './components/dashboard/dashboard-layout/das
 import { MemberModule } from './components/dashboard/member/member.module';
 import { HomeModule } from './components/home/home.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
