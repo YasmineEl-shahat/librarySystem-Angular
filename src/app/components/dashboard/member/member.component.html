@@ -1,7 +1,9 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Member</h1>
-  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+  <a
+    href="/dashboard/member/add-member"
+    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
     ><i class="fas fa-download fa-sm text-white-50"></i> Add new member</a
   >
 </div>
@@ -39,17 +41,21 @@
             <td>{{ member.email }}</td>
             <td>{{ member.phoneNumber }}</td>
             <td>{{ member.birthdate }}</td>
-            <td>{{ member.fullAddress?.building }} {{ member.fullAddress?.street }}, {{ member.fullAddress?.city }}</td>
+            <td>
+              {{ member.fullAddress?.building }}
+              {{ member.fullAddress?.street }}, {{ member.fullAddress?.city }}
+            </td>
             <td>{{ member.image }}</td>
             <td>{{ member.readingBooks }}</td>
             <td>{{ member.borrowedBooks }}</td>
             <td>
               <a href="#" class="btn btn-info">Edit</a>
               <!-- <a href="#" class="btn btn-danger">Delete</a> -->
-              <button class="btn btn-danger" (click)="deleteMember(member._id)">Delete</button>
+              <button class="btn btn-danger" (click)="deleteMember(member._id)">
+                Delete
+              </button>
             </td>
           </tr>
-
         </tbody>
       </table>
     </div>
