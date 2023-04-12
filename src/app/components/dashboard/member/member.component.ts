@@ -9,17 +9,18 @@ import { Member } from 'src/app/models/member';
 })
 export class MemberComponent implements OnInit {
 
+  memberObj: Member[] = [];
+  searchTerm: string = '';
 
-  memberObj:Member[]=[];
   constructor(public memberService: MemberService) {}
 
   ngOnInit() {
-    this.memberService.getAll().subscribe((members:any) => {
+    this.getMembers();
+  }
 
-
-      this.memberObj=members.data;
-      console.log(this.memberObj);
-      // console.log(members);
+  getMembers() {
+    this.memberService.getAll().subscribe((members: any) => {
+      this.memberObj = members.data;
     });
   }
 
@@ -27,10 +28,47 @@ export class MemberComponent implements OnInit {
     if (id) {
       this.memberService.deleteMember(id).subscribe((response: any) => {
         confirm(`Deleted member with id ${id} ${response.data} `);
-
+        this.getMembers();
       });
     }
   }
+
+  // search(): void {
+  //   if (this.searchTerm.length > 0) {
+  //     this.memberService.memberSearch(this.searchTerm).subscribe((response: any) => {
+  //       this.memberObj = response.data;
+  //       alert(this.memberObj);
+  //     });
+  //   } else {
+  //     this.getMembers();
+  //   }
+  // }
+
+
+
+  search(event: Event): void  {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement && inputElement.value.length > 0) {
+      const searchTerm = inputElement.value;
+      this.memberService.memberSearch(searchTerm).subscribe((response: any) => {
+        this.memberObj = response.data;
+      });
+    } else {
+      this.getMembers();
+    }
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
   // deleteMember(id: number | undefined, e: any) {
   //   e.preventDefault();
   //   if (id) {
@@ -46,5 +84,4 @@ export class MemberComponent implements OnInit {
 
 
 
-}
 

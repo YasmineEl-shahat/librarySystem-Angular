@@ -9,27 +9,21 @@ import { Observable } from 'rxjs';
 export class MemberService {
 
 
-  // private baseUrl = 'http://localhost:8080';
-
-  // constructor(public http: HttpClient) { }
-
-  // getAll(): Observable<Member[]> {
-  //   const url = `${this.baseUrl}/members`;
-  //   return this.http.get<Member[]>(url);
-  // }
-
-
-
-
-
-
 
   constructor(private _apiService: ApiService) { }
 
   getAll() {
     return this._apiService.get(`members`);
   }
+  deleteMember(id: number): Observable<any> {
+    return this._apiService.delete(`members/${id}`);
+  }
 
+  memberSearch(searchTerm: string): Observable<any> {
+    return this._apiService.get(`members/search?searchTerm=${searchTerm}`);
+  }
+
+}
   // getById(id) {
   //   return this._apiService.get(`members/${id}`);
   // }
@@ -45,9 +39,5 @@ export class MemberService {
   // deleteMember(id: number) {
   //   return this._apiService.delete(`members/${id}`);
   // }
-  deleteMember(id: number): Observable<any> {
-    return this._apiService.delete(`members/${id}`);
-  }
 
 
-}
