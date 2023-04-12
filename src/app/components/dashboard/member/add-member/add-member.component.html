@@ -1,0 +1,201 @@
+<section class="container h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col col-xl-10">
+      <h1>Add new member</h1>
+      <div class="row g-0">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form">
+          <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input
+              type="text"
+              formControlName="name"
+              id="name"
+              class="form-control"
+              placeholder="Enter your full name"
+              [class.is-invalid]="isInValidAndTouched('name')"
+              [class.is-valid]="isValidControl('name')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('name', 'required')"
+                >Please enter your full name</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="birthdate">Birth Date:</label>
+            <input
+              type="date"
+              formControlName="birthdate"
+              id="birthdate"
+              class="form-control"
+              placeholder="Select your birth date"
+              [class.is-invalid]="isInValidAndTouched('birthdate')"
+              [class.is-valid]="isValidControl('birthdate')"
+              required
+            />
+
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('birthdate', 'required')"
+                >Please select your birth date</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="hiredate">Hire Date:</label>
+            <input
+              type="date"
+              formControlName="hiredate"
+              id="hiredate"
+              class="form-control"
+              placeholder="Select your hire date"
+              [class.is-invalid]="isInValidAndTouched('hiredate')"
+              [class.is-valid]="isValidControl('hiredate')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('hiredate', 'required')"
+                >Please select your hire date</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="salary">Salary:</label>
+            <input
+              type="number"
+              formControlName="salary"
+              id="salary"
+              class="form-control"
+              placeholder="Enter your salary"
+              [class.is-invalid]="isInValidAndTouched('salary')"
+              [class.is-valid]="isValidControl('salary')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('salary', 'required')"
+                >Please enter your salary</span
+              >
+              <span *ngIf="isControlHasError('salary', 'min')">
+                salary should be more than or equal to 1000</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              formControlName="email"
+              id="email"
+              class="form-control"
+              placeholder="Enter your email address"
+              [class.is-invalid]="isInValidAndTouched('email')"
+              [class.is-valid]="isValidControl('email')"
+              required
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="isControlHasError('email', 'required')"
+            >
+              Email is required.
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="isControlHasError('email', 'email')"
+            >
+              Invalid email format.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input
+              type="text"
+              formControlName="phoneNumber"
+              id="phoneNumber"
+              class="form-control"
+              placeholder="Enter your full phoneNumber"
+              [class.is-invalid]="isInValidAndTouched('phoneNumber')"
+              [class.is-valid]="isValidControl('phoneNumber')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('phoneNumber', 'required')"
+                >Please enter your phoneNumber</span
+              >
+              <span *ngIf="isControlHasError('phoneNumber', 'minLength')"
+                >invalid phoneNumber</span
+              >
+              <span *ngIf="isControlHasError('phoneNumber', 'maxLength')"
+                >invalid phoneNumber</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input
+              type="text"
+              formControlName="city"
+              id="city"
+              class="form-control"
+              placeholder="Enter your full city"
+              [class.is-invalid]="isInValidAndTouched('city')"
+              [class.is-valid]="isValidControl('city')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('city', 'required')"
+                >Please enter your city</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="street">Street:</label>
+            <input
+              type="text"
+              formControlName="street"
+              id="street"
+              class="form-control"
+              placeholder="Enter your full street"
+              [class.is-invalid]="isInValidAndTouched('street')"
+              [class.is-valid]="isValidControl('street')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('street', 'required')"
+                >Please enter your street</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="building">building no:</label>
+            <input
+              type="number"
+              formControlName="building"
+              id="building"
+              class="form-control"
+              placeholder="Enter your full building"
+              [class.is-invalid]="isInValidAndTouched('building')"
+              [class.is-valid]="isValidControl('building')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('building', 'required')"
+                >Please enter your building</span
+              >
+            </div>
+          </div>
+          <div class="invalid" *ngIf="errMsg">{{ errMsg }}</div>
+
+          <button
+            type="submit"
+            [disabled]="addForm.invalid"
+            class="btn btn-prim"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

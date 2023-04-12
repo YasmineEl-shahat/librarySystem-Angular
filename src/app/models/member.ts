@@ -1,29 +1,26 @@
-
 export class Member {
-
-
-
   _id?: number;
   fullName?: string;
   email?: string;
   password?: string;
-  phoneNumber?: string="";
+  phoneNumber?: string = '';
   birthdate?: string;
   fullAddress?: {
     city?: string;
     street?: string;
-    building?: string;
+    building?: Number;
   };
-  image: string="";
+  image?: string = '';
   readingBooks?: string[];
   borrowedBooks?: string[];
   createdAt?: Date;
   updatedAt?: Date;
 
+  // address?: string=`${this.fullAddress?.city} , ${this.fullAddress?.street}, ${this.fullAddress?.building}`
+  // getFullAddress(): string {
+  //   return `${this.fullAddress?.city} , ${this.fullAddress?.street}, ${this.fullAddress?.building}`;
+  // }
 }
-
-
-
 
 // import { Validators } from '@angular/forms';
 
