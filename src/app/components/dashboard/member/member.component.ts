@@ -24,14 +24,17 @@ export class MemberComponent implements OnInit {
     });
   }
 
-  deleteMember(id: number | undefined) {
+  deleteMember(id: number | undefined, e: any) {
     if (id) {
-      this.memberService.deleteMember(id).subscribe((response: any) => {
-        confirm(`Deleted member with id ${id} ${response.data} `);
-        this.getMembers();
-      });
+      const confirmed = confirm(`Are you sure you want to delete member with id ${id}?`);
+      if (confirmed) {
+        this.memberService.deleteMember(id).subscribe((response: any) => {
+          alert(`Deleted member with id ${id} `);
+        });
+      }
     }
   }
+
 
   // search(): void {
   //   if (this.searchTerm.length > 0) {
