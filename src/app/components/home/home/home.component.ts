@@ -16,6 +16,7 @@ export class HomeComponent {
 
   books:Book[]=[];
   latestBooks:Book[]=[];
+  limit:number = 4;
 
   constructor(private _bookService:BookService) { }
 

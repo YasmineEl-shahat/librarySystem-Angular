@@ -62,7 +62,7 @@ export class AddEmployeeComponent implements OnInit {
   }
   //*********End of form validation functions**********
   async onSubmit() {
-    const admin: EmployeeRequest = {
+    const employee: EmployeeRequest = {
       fname: this.addForm.value.fname,
       lname: this.addForm.value.lname,
       birthdate: this.addForm.value.birthdate,
@@ -70,7 +70,7 @@ export class AddEmployeeComponent implements OnInit {
       salary: this.addForm.value.salary,
       email: this.addForm.value.email,
     };
-    const response = await this._employeeService.post(admin).subscribe(
+    const response = await this._employeeService.post(employee).subscribe(
       async (response: any) => {
         this.router.navigateByUrl('/dashboard/employee/employee');
       },

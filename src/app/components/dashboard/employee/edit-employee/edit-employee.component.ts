@@ -105,7 +105,7 @@ export class EditEmployeeComponent implements OnInit {
     }
   }
   async onSubmit() {
-    const admin: EmployeeRequest = {};
+    const employee: EmployeeRequest = {};
     const formData = new FormData();
 
     if (this.employeeImage) {
@@ -113,32 +113,32 @@ export class EditEmployeeComponent implements OnInit {
     }
 
     if (this.editForm.controls['fname'].dirty) {
-      admin.fname = this.editForm.value.fname;
+      employee.fname = this.editForm.value.fname;
       formData.append('fname', this.editForm.value.fname);
     }
 
     if (this.editForm.controls['lname'].dirty) {
-      admin.lname = this.editForm.value.lname;
+      employee.lname = this.editForm.value.lname;
       formData.append('lname', this.editForm.value.lname);
     }
 
     if (this.editForm.controls['password'].dirty) {
-      admin.password = this.editForm.value.password;
+      employee.password = this.editForm.value.password;
       formData.append('password', this.editForm.value.password);
     }
 
     if (this.editForm.controls['birthdate'].dirty) {
-      admin.birthdate = this.editForm.value.birthdate;
+      employee.birthdate = this.editForm.value.birthdate;
       formData.append('birthdate', this.editForm.value.birthdate);
     }
 
     if (this.editForm.controls['salary'].dirty) {
-      admin.salary = this.editForm.value.salary;
+      employee.salary = this.editForm.value.salary;
       formData.append('salary', this.editForm.value.salary);
     }
 
     if (this.editForm.controls['email'].dirty) {
-      admin.email = this.editForm.value.email;
+      employee.email = this.editForm.value.email;
       formData.append('email', this.editForm.value.email);
     }
 
