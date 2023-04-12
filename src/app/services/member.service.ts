@@ -22,9 +22,10 @@ export class MemberService {
     return this._apiService.delete(`members/${id}`);
   }
 
-  memberSearch(searchTerm: string): Observable<any> {
-    return this._apiService.get(`members/search?searchTerm=${searchTerm}`);
-  }
+  // memberSearch(searchTerm: string): Observable<any> {
+  //   return this._apiService.get(`members/search?searchTerm=${searchTerm}`);
+  // }
+
   get(id: number) {
     return this._apiService.get(`members/${id}`);
   }
