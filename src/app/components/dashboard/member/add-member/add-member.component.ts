@@ -6,26 +6,23 @@ import {
   FormControl,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmployeeRequest } from 'src/app/models/employee';
-import { EmployeeService } from 'src/app/services/employee.service';
-
+import { MemberService } from 'src/app/services/member.service';
 @Component({
-  selector: 'app-add-employee',
-  templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.css'],
+  selector: 'app-add-member',
+  templateUrl: './add-member.component.html',
+  styleUrls: ['./add-member.component.css'],
 })
-export class AddEmployeeComponent implements OnInit {
+export class AddMemberComponent {
   addForm: FormGroup = new FormGroup({});
   constructor(
     private fb: FormBuilder,
-    private _employeeService: EmployeeService,
+    private _memberService: MemberService,
     private router: Router
   ) {}
   errMsg: any = '';
   ngOnInit(): void {
     this.addForm = this.fb.group({
-      fname: ['', Validators.required],
-      lname: ['', Validators.required],
+      name: ['', Validators.required],
       birthdate: [
         '',
         Validators.required,
@@ -38,6 +35,17 @@ export class AddEmployeeComponent implements OnInit {
       ],
       salary: new FormControl('', [Validators.required, Validators.min(1000)]),
       email: ['', [Validators.required, Validators.email]],
+      phoneNumber: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(11),
+          Validators.maxLength(11),
+        ],
+      ],
+      city: ['', Validators.required],
+      street: ['', Validators.required],
+      building: ['', Validators.required],
     });
   }
 
@@ -62,17 +70,21 @@ export class AddEmployeeComponent implements OnInit {
   }
   //*********End of form validation functions**********
   async onSubmit() {
-    const employee: EmployeeRequest = {
-      fname: this.addForm.value.fname,
-      lname: this.addForm.value.lname,
+    const member: any = {
+      name: this.addForm.value.name,
       birthdate: this.addForm.value.birthdate,
       hiredate: this.addForm.value.hiredate,
       salary: this.addForm.value.salary,
       email: this.addForm.value.email,
+      phoneNumber: this.addForm.value.phoneNumber,
+      city: this.addForm.value.city,
+      street: this.addForm.value.street,
+      building: this.addForm.value.building,
     };
-    const response = await this._employeeService.post(employee).subscribe(
+
+    const response = await this._memberService.post(member).subscribe(
       async (response: any) => {
-        this.router.navigateByUrl('/dashboard/employee/employee');
+        this.router.navigateByUrl('/dashboard/member/member');
       },
       (error: any) => {
         this.errMsg = error.error.message;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { UserCredintialService } from 'src/app/services/user-credintial.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,10 +8,12 @@ import { MenuItem } from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
   items: MenuItem[] =[];
+  staff:any;
+  constructor(private _userCredintialService:UserCredintialService){}
   ngOnInit() {
-        this.items = [
-            
-           
+   this.isStaff();
+   if(!this.isStaff()){
+        this.items = [  
             {
                 label:'Profile',
                 icon: 'pi pi-fw pi-user',
@@ -26,7 +29,27 @@ export class HeaderComponent implements OnInit {
                     
                 ]
             },
+        ];}
+        else{
+          this.items = [  
+            {
+                
+              label: 'Logout',
+              icon: 'pi pi-fw pi-download',routerLink: ['/logout']
+            },
         ];
+
+        }
+    }
+
+    isStaff(){
+      this.staff=this._userCredintialService.getCredintial();
+      let role=this.staff.role;
+      if(role == "member"){   
+      return false;
+      }
+      else
+      return true;
     }
 }
 

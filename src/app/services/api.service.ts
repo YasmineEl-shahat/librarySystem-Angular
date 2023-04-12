@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Book } from '../models/book';
+import {Member } from 'src/app/models/member';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -21,6 +23,14 @@ export class ApiService {
 
   }
 
+  getById(url: string , id:any) {
+    // console.log(id);
+    // console.log(`${this.api_url}/${url}${id}`);
+    return this._httpClient.get(`${this.api_url}/${url}${id}`, {
+      headers: this.headers,
+    });
+  }
+  
   post(url: string, body: any) {
     return this._httpClient.post(`${this.api_url}/${url}`, body, {
       headers: this.headers,
@@ -35,6 +45,12 @@ export class ApiService {
 
   delete(url: string) {
     return this._httpClient.delete(`${this.api_url}/${url}`, {
+      headers: this.headers,
+    });
+  }
+
+  getBook(url: string, id: number) {
+    return this._httpClient.get(`${this.api_url}/${url}${id}`, {
       headers: this.headers,
     });
   }
