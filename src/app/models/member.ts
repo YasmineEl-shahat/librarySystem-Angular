@@ -2,6 +2,7 @@ export class Member {
   _id?: number;
   fullName?: string;
   email?: string;
+  salary?: number;
   password?: string;
   phoneNumber?: string = '';
   birthdate?: string;

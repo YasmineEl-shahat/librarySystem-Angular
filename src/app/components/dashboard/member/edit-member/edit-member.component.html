@@ -1,20 +1,25 @@
 <section class="container h-100">
   <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col col-xl-10">
-      <h1>Add new member</h1>
+      <h1>Edit Member</h1>
       <div class="row g-0">
-        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form">
+        <form
+          [formGroup]="editForm"
+          (ngSubmit)="onSubmit()"
+          class="form"
+          enctype="multipart/form-data"
+        >
           <div class="form-group">
             <label for="name">Full Name:</label>
             <input
               type="text"
               formControlName="name"
-              id="name"
+              id="fname"
               class="form-control"
               placeholder="Enter your full name"
               [class.is-invalid]="isInValidAndTouched('name')"
               [class.is-valid]="isValidControl('name')"
-              required
+              value="{{ memberDetails?.fullName }}"
             />
             <div class="invalid-feedback">
               <span *ngIf="isControlHasError('name', 'required')"
@@ -22,6 +27,7 @@
               >
             </div>
           </div>
+
           <div class="form-group">
             <label for="birthdate">Birth Date:</label>
             <input
@@ -33,29 +39,12 @@
               [class.is-invalid]="isInValidAndTouched('birthdate')"
               [class.is-valid]="isValidControl('birthdate')"
               required
+              value="{{ memberDetails?.birthdate }}"
             />
 
             <div class="invalid-feedback">
               <span *ngIf="isControlHasError('birthdate', 'required')"
                 >Please select your birth date</span
-              >
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="hiredate">Hire Date:</label>
-            <input
-              type="date"
-              formControlName="hiredate"
-              id="hiredate"
-              class="form-control"
-              placeholder="Select your hire date"
-              [class.is-invalid]="isInValidAndTouched('hiredate')"
-              [class.is-valid]="isValidControl('hiredate')"
-              required
-            />
-            <div class="invalid-feedback">
-              <span *ngIf="isControlHasError('hiredate', 'required')"
-                >Please select your hire date</span
               >
             </div>
           </div>
@@ -69,15 +58,15 @@
               placeholder="Enter your salary"
               [class.is-invalid]="isInValidAndTouched('salary')"
               [class.is-valid]="isValidControl('salary')"
-              required
+              value="{{ memberDetails?.salary }}"
             />
             <div class="invalid-feedback">
               <span *ngIf="isControlHasError('salary', 'required')"
                 >Please enter your salary</span
               >
               <span *ngIf="isControlHasError('salary', 'min')">
-                salary should be more than or equal to 1000</span
-              >
+                salary should be more than or equal to 1000
+              </span>
             </div>
           </div>
           <div class="form-group">
@@ -90,6 +79,7 @@
               placeholder="Enter your email address"
               [class.is-invalid]="isInValidAndTouched('email')"
               [class.is-valid]="isValidControl('email')"
+              value="{{ memberDetails?.email }}"
               required
             />
             <div
@@ -105,6 +95,7 @@
               Invalid email format.
             </div>
           </div>
+
           <div class="form-group">
             <label for="phoneNumber">Phone Number:</label>
             <input
@@ -115,6 +106,7 @@
               placeholder="Enter your phoneNumber"
               [class.is-invalid]="isInValidAndTouched('phoneNumber')"
               [class.is-valid]="isValidControl('phoneNumber')"
+              value="{{ memberDetails?.phoneNumber }}"
               required
             />
             <div class="invalid-feedback">
@@ -130,6 +122,16 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              formControlName="password"
+              id="password"
+              class="form-control"
+              placeholder="Enter password"
+            />
+          </div>
+          <div class="form-group">
             <label for="city">City:</label>
             <input
               type="text"
@@ -139,6 +141,7 @@
               placeholder="Enter your full city"
               [class.is-invalid]="isInValidAndTouched('city')"
               [class.is-valid]="isValidControl('city')"
+              value="{{ memberDetails?.fullAddress?.city }}"
               required
             />
             <div class="invalid-feedback">
@@ -158,6 +161,7 @@
               placeholder="Enter your full street"
               [class.is-invalid]="isInValidAndTouched('street')"
               [class.is-valid]="isValidControl('street')"
+              value="{{ memberDetails?.fullAddress?.street }}"
               required
             />
             <div class="invalid-feedback">
@@ -177,6 +181,7 @@
               placeholder="Enter your full building"
               [class.is-invalid]="isInValidAndTouched('building')"
               [class.is-valid]="isValidControl('building')"
+              value="{{ memberDetails?.fullAddress?.building }}"
               required
             />
             <div class="invalid-feedback">
@@ -185,11 +190,31 @@
               >
             </div>
           </div>
+          <div class="form-group">
+            <label for="image">Member Image:</label><br />
+            <img
+              *ngIf="memberDetails?.image"
+              [src]="memberDetails?.image"
+              alt="Member Image"
+              width="150"
+              height="150"
+            />
+            <br /><br />
+            <input
+              class="form-control"
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              (change)="onImageSelected($event)"
+            />
+          </div>
+
           <div class="invalid" *ngIf="errMsg">{{ errMsg }}</div>
 
           <button
             type="submit"
-            [disabled]="addForm.invalid"
+            [disabled]="editForm.invalid"
             class="btn btn-prim"
           >
             Submit

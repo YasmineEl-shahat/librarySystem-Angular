@@ -6,7 +6,6 @@ import {
   FormControl,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { Member } from 'src/app/models/member';
 import { MemberService } from 'src/app/services/member.service';
 @Component({
   selector: 'app-add-member',
@@ -71,7 +70,6 @@ export class AddMemberComponent {
   }
   //*********End of form validation functions**********
   async onSubmit() {
-    // const member: Member = new Member();
     const member: any = {
       name: this.addForm.value.name,
       birthdate: this.addForm.value.birthdate,

@@ -25,15 +25,18 @@ export class MemberService {
   getAll() {
     return this._apiService.get(`members`);
   }
-
+  get(id: number) {
+    return this._apiService.get(`members/${id}`);
+  }
   getById(id: any) {
-    console.log(id);
+    console.log(this._apiService.getById(`members/`, id));
+
     return this._apiService.getById(`members/`, id);
   }
   post(member: any) {
     return this._apiService.post(`members`, member);
   }
-  update(id: any, member: any): Observable<any> {
+  patch(id: any, member: any): Observable<any> {
     return this._apiService.patch(`members/${id}`, member);
   }
 

@@ -14,6 +14,7 @@ import { EmployeeModule } from './employee/employee.module';
 import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.component';
 import { MemberModule } from './member/member.module';
 import { AddMemberComponent } from './member/add-member/add-member.component';
+import { EditMemberComponent } from './member/edit-member/edit-member.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'employee/edit-employee/:id', component: EditEmployeeComponent },
       { path: 'member/member', component: MemberComponent },
       { path: 'member/add-member', component: AddMemberComponent },
+      { path: 'member/edit-member/:id', component: EditMemberComponent },
     ],
   },
 ];
