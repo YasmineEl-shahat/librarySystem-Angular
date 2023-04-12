@@ -47,7 +47,7 @@
           <a class="nav-link" [routerLink]="['/books']">Books</a>
         </li>
       </ul>
-      <ul><li class="nav-item list_type_none mt-2" *ngIf="isStaff"><a class="nav-link scrollto" routerLink="dashboard"
+      <ul><li class="nav-item list_type_none mt-2" *ngIf="isStaff()"><a class="nav-link scrollto" routerLink="dashboard"
         routerLinkActive="active"><i class="bi bi-speedometer2 fs-2"></i></a></li></ul>
       <div  class="card mx-1 "  style="background-color: #444; width: 13%">
         <p-menubar
