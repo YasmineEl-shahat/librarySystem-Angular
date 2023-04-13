@@ -1,5 +1,5 @@
 export class Admin {
-  id: number;
+  _id: number;
   fname: string;
   lname: string;
   birthdate: Date;
@@ -11,7 +11,7 @@ export class Admin {
   image: string;
 
   constructor(
-    id: number,
+    _id: number,
     fname: string,
     lname: string,
     birthdate: Date,
@@ -22,7 +22,7 @@ export class Admin {
     password: string,
     image: string
   ) {
-    this.id = id;
+    this._id = _id;
     this.fname = fname;
     this.lname = lname;
     this.birthdate = birthdate;
@@ -36,6 +36,7 @@ export class Admin {
 }
 
 export interface AdminRequest {
+  _id?: number;
   fname?: string;
   lname?: string;
   birthdate?: Date;

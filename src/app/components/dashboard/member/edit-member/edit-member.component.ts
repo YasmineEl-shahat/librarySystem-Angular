@@ -33,8 +33,10 @@ export class EditMemberComponent implements OnInit {
     this.s = this.activatedRoute.params.subscribe(async (a) => {
       await this._memberService.get(a['id']).subscribe(
         (result: any) => {
-          result.data[0].image =
-            'http:\\localhost:8080\\' + result.data[0].image;
+          if (result.data[0].image)
+            result.data[0].image = `http:\\\\localhost:8080\images${
+              result.data[0].image.split('images')[1]
+            }`;
 
           result.data[0].birthdate = new Date(result.data[0].birthdate)
             .toISOString()

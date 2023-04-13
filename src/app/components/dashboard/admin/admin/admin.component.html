@@ -26,7 +26,6 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Password</th>
             <th>Salary</th>
             <th>Birthdate</th>
             <th>Hiredate</th>
@@ -35,34 +34,32 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>ahmed</td>
-            <td>ramadan</td>
-            <td>ahmedromio233@gmail.com</td>
-            <td>fa65faf</td>
-            <td>50000</td>
-            <td>2011/04/25</td>
-            <td>2011/04/25</td>
-            <td>img</td>
+          <tr *ngFor="let admin of admins">
+            <td>{{ admin._id }}</td>
+            <td>{{ admin.fname }}</td>
+            <td>{{ admin.lname }}</td>
+            <td>{{ admin.email }}</td>
+            <td>{{ admin.salary }}</td>
+            <td>{{ admin.birthdate }}</td>
+            <td>{{ admin.hiredate }}</td>
             <td>
-              <a href="#" class="btn btn-info">Edit</a>
-              <a href="#" class="btn btn-danger">Delete</a>
+              <img
+                *ngIf="admin.image"
+                [src]="admin.image"
+                alt="Admin Image"
+                width="150"
+                height="150"
+              />
             </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>ahmed</td>
-            <td>ramadan</td>
-            <td>ahmedromio233@gmail.com</td>
-            <td>fa65faf</td>
-            <td>50000</td>
-            <td>2011/04/25</td>
-            <td>2011/04/25</td>
-            <td>img</td>
             <td>
-              <a href="#" class="btn btn-info">Edit</a>
-              <a href="#" class="btn btn-danger">Delete</a>
+              <a
+                href="/dashboard/admin/edit-admin/{{ admin._id }}"
+                class="btn btn-info"
+                >Edit</a
+              >
+              <button class="btn btn-danger" (click)="deleteAdmin(admin._id)">
+                Delete
+              </button>
             </td>
           </tr>
         </tbody>

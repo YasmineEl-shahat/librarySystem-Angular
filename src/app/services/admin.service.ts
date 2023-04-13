@@ -19,4 +19,7 @@ export class AdminService {
   patch(id: number, body: any) {
     return this.apiService.patch(`admins/${id}`, body);
   }
+  delete(id: number) {
+    return this.apiService.delete(`admins/${id}`);
+  }
 }
