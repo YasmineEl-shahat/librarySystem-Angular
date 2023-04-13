@@ -1,5 +1,5 @@
 export class Employee {
-  id: number;
+  _id: number;
   fname: string;
   lname: string;
   birthdate: Date;
@@ -10,7 +10,7 @@ export class Employee {
   image: string;
 
   constructor(
-    id: number,
+    _id: number,
     fname: string,
     lname: string,
     birthdate: Date,
@@ -20,7 +20,7 @@ export class Employee {
     password: string,
     image: string
   ) {
-    this.id = id;
+    this._id = _id;
     this.fname = fname;
     this.lname = lname;
     this.birthdate = birthdate;
@@ -33,6 +33,7 @@ export class Employee {
 }
 
 export interface EmployeeRequest {
+  _id?: number;
   fname?: string;
   lname?: string;
   birthdate?: Date;

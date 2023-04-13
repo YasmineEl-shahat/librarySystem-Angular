@@ -34,8 +34,11 @@ export class EditEmployeeComponent implements OnInit {
     this.s = this.activatedRoute.params.subscribe(async (a) => {
       await this.EmployeeService.get(a['id']).subscribe(
         (result: any) => {
-          result.data.image = 'http:\\localhost:8080\\' + result.data.image;
-          console.log(result.data);
+          if (result.data.image)
+            result.data.image = `http:\\\\localhost:8080\images${
+              result.data.image.split('images')[1]
+            }`;
+
           result.data.birthdate = new Date(result.data.birthdate)
             .toISOString()
             .slice(0, 10);

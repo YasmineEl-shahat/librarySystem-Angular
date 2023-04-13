@@ -19,4 +19,7 @@ export class EmployeeService {
   patch(id: number, body: any) {
     return this.apiService.patch(`employees/${id}`, body);
   }
+  delete(id: number) {
+    return this.apiService.delete(`employees/${id}`);
+  }
 }
