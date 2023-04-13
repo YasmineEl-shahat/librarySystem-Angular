@@ -10,7 +10,7 @@ import { __param } from 'tslib';
   styleUrls: ['./book-details.component.css'],
 })
 export class BookDetailsComponent {
-  book:Book= new Book;
+  book: Book = new Book();
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -24,10 +24,10 @@ export class BookDetailsComponent {
       console.log(id);
 
       this._bookService.getBook(`${id}`).subscribe((book: any) => {
-        this.book = book[0];
+        this.book = book.data[0];
+        // console.log(this.book);
         console.log(this.book);
       });
     });
   }
-
 }

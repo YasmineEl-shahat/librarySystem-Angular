@@ -12,8 +12,9 @@ export class UserService {
   constructor(private _apiService: ApiService) {}
 
   login(token: string, message: string) {
+    const expirationTime = new Date().getTime() +1 * 1000;
     localStorage.setItem('Token', token);
-    localStorage.setItem('message', message);
+
     this.logged.next(true);
   }
   isLoggedIn(): boolean {
@@ -28,4 +29,16 @@ export class UserService {
     localStorage.removeItem('message');
     this.logged.next(false);
   }
+
+    // const expirationTime = new Date().getTime() + 3600 * 1000;
+    // setTimeout(() => {
+    //   const currentTime = new Date().getTime();
+    //   const expirationTime = parseInt(localStorage.getItem('expirationTime'), 10);
+    //   if (currentTime > expirationTime) {
+    //     localStorage.removeItem('token');
+    //     localStorage.removeItem('expirationTime');
+    //   }
+    // }, 3600 * 1000); // 1 hour in milliseconds
+    
+
 }

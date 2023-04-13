@@ -6,10 +6,11 @@ import { EditBorrowBookOperationComponent } from './borrow/edit-borrow-book-oper
 import { BookReadOperationComponent } from './read/book-read-operation/book-read-operation.component';
 import { AddBookReadOperationComponent } from './read/add-book-read-operation/add-book-read-operation.component';
 import { EditBookReadOperationComponent } from './read/edit-book-read-operation/edit-book-read-operation.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
- 
   declarations: [
     AddBorrowBookOperationComponent,
     BorrowBookOperationComponent,
@@ -18,6 +19,6 @@ import { EditBookReadOperationComponent } from './read/edit-book-read-operation/
     AddBookReadOperationComponent,
     EditBookReadOperationComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, NgxPaginationModule, FormsModule , ReactiveFormsModule],
 })
 export class BookOperationModule {}
