@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { ApiService } from 'src/app/services/api.service';
 import { BookService } from 'src/app/services/book.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +19,10 @@ export class HomeComponent {
   latestBooks:Book[]=[];
   limit:number = 4;
 
-  constructor(private _bookService:BookService) { }
+  constructor(private _bookService:BookService,private _apiService:ApiService) { }
 
   ngOnInit(): void {
+    this._apiService.token;
     //get all books
     this.getAllBooks();
 
@@ -28,8 +30,8 @@ export class HomeComponent {
     this._bookService.getLatestBooks()
     .subscribe(
       (response:any)=>{
-      JSON.stringify(response.data);
-        this.latestBooks=response;
+     // JSON.stringify(response.data);
+        this.latestBooks=response.data;
         console.log(this.latestBooks)
       }
       ,
@@ -46,7 +48,7 @@ export class HomeComponent {
     
     (response:any)=>{
      //JSON.stringify(response);
-     if (response.image) response.image = `https://localhost:8000/images/${response.image.split("images")[1]}`
+     //if (response.image) response.image = `https://localhost:8000/images/${response.image.split("images")[1]}`
        this.books=response;
        console.log(this.books);
        console.log(response);

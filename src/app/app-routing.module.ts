@@ -4,11 +4,12 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { IsLoginGuard } from './guards/is-login.guard';
 import { IsAdminGuard } from './guards/is-admin.guard';
 import { IsStaffGuard } from './guards/is-staff.guard';
+import { IsActiveGuard } from './guards/is-active.guard';
 
 const routes: Routes = [
   {
     path: 'dashboard',
-    canActivate:[IsLoginGuard,IsStaffGuard],
+    canActivate:[IsLoginGuard,IsActiveGuard,IsStaffGuard],
     loadChildren: () =>
       import('./components/dashboard/dashboard-routing.module').then(
         (m) => m.DashboardRoutingModule
@@ -17,14 +18,14 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate:[IsLoginGuard],
+    canActivate:[IsLoginGuard,IsActiveGuard],
     loadChildren: () =>
       import('./components/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: '',
     component: LayoutComponent,
-    canActivate:[IsLoginGuard],
+    canActivate:[IsLoginGuard,IsActiveGuard],
     loadChildren: () =>
       import('./components/user-profile/user-profile.module').then(
         (m) => m.UserProfileModule
@@ -39,7 +40,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate:[IsLoginGuard],
+    canActivate:[IsLoginGuard,IsActiveGuard],
     loadChildren: () =>
       import('./components/book/book.module').then((m) => m.BookModule),
   },

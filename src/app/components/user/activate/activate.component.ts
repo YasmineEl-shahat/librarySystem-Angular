@@ -82,9 +82,7 @@ export class ActivateComponent {
         async (response: any) => {
           this.router.navigateByUrl('/home');
         },
-        (error: any) => {
-          console.log(this.errMsg);
-        }
+     
       );
   }
 }
