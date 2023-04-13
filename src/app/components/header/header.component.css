@@ -15,3 +15,20 @@
     color: #e57277 !important;
   }
 
+  .p-menubar {
+    background-color: #007bff;
+  }
+  
+  /* Menu item color and hover effect */
+  .p-menuitem-link {
+    color: #ffffff;
+  }
+  .p-menuitem-link:hover {
+    background-color: #0069d9;
+  }
+  
+  /* Active menu item color and background */
+  .p-menuitem-active > .p-menuitem-link {
+    background-color: #ffffff;
+    color: #007bff;
+  }

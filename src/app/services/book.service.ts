@@ -12,11 +12,15 @@ export class BookService {
     return this._apiService.get(`books`)
 
    }
+  getLimit() {
+    return this._apiService.get(`getCountBook`)
+
+   }
 
    getLatestBooks(){
     return this._apiService.get(`newBooks`)
    }
-   getBook(id: string){
+   getBook(id: any){
     return this._apiService.get(`books/${id}`);
   }
 

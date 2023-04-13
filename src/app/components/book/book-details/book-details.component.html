@@ -1,15 +1,9 @@
 <div class="container pt-4 pb-4">
   <div class="row main-book">
     <div class="img text-center col-xs-12 col-sm-12 col-md-8 col-lg-7">
-      <img
-        src="./../../../../assets/books/eos-lobortis.jpg"
-        class="img-thumbnail"
-        alt="eos-lobortis"
-      />
+      <img [src]="book.image" class="img-thumbnail" alt="eos-lobortis" />
     </div>
-    <div
-      class="details d-flex justify-content-center align-items-center col-xs-12 col-sm-12 col-md-4 col-lg-3"
-    >
+    <div class="details d-flex justify-content-center align-items-center col-xs-12 col-sm-12 col-md-4 col-lg-3">
       <div class="info">
         <p class="title pink-text">{{ book.title }}</p>
         <P>
@@ -23,11 +17,9 @@
           <span>{{ book.publishingDate | date : "yyyy-MM-dd" }}</span>
         </P>
         <P>
-          Category : <span>{{ book.category }}</span></P
-        >
+          Category : <span>{{ book.category }}</span></P>
         <P>
-          Edition : <span>{{ book.edition }}</span></P
-        >
+          Edition : <span>{{ book.edition }}</span></P>
         <P>
           No Of Pages : <span>{{ book.pages }}</span>
         </P>
@@ -35,13 +27,7 @@
     </div>
   </div>
 </div>
-<script
-  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-  integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-  integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-  crossorigin="anonymous"
-></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+  integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+  integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>

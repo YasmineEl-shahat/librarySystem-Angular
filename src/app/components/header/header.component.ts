@@ -37,7 +37,24 @@ export class HeaderComponent implements OnInit {
               label: 'Logout',
               icon: 'pi pi-fw pi-download',routerLink: ['/logout']
             },
-        ];
+        ],        this.items = [  
+          {
+              label:'Dashboard',
+              icon: 'pi pi-fw pi-database',
+                  items: [
+                    {
+                      label: 'Dashboard',
+                      icon: 'pi pi-fw pi-database',routerLink: ['/dashboard']
+                  },
+                      {
+                        label: 'Logout',
+                        icon: 'pi pi-fw pi-download',routerLink: ['/logout']
+                          
+                      }, 
+                  
+              ]
+          },
+      ];
 
         }
     }
