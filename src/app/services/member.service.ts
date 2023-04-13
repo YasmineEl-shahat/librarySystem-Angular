@@ -11,20 +11,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MemberService {
-  // private baseUrl = 'http://localhost:8080';
 
-  // constructor(public http: HttpClient) { }
-
-  // getAll(): Observable<Member[]> {
-  //   const url = `${this.baseUrl}/members`;
-  //   return this.http.get<Member[]>(url);
-  // }
 
   constructor(private _apiService: ApiService) {}
 
   getAll() {
     return this._apiService.get(`members`);
   }
+  deleteMember(id: number): Observable<any> {
+    return this._apiService.delete(`members/${id}`);
+  }
+
+  // memberSearch(searchTerm: string): Observable<any> {
+  //   return this._apiService.get(`members/search?searchTerm=${searchTerm}`);
+  // }
+
   get(id: number) {
     return this._apiService.get(`members/${id}`);
   }
@@ -33,15 +34,12 @@ export class MemberService {
 
     return this._apiService.getById(`members/`, id);
   }
+
   post(member: any) {
     return this._apiService.post(`members`, member);
   }
   patch(id: any, member: any): Observable<any> {
     return this._apiService.patch(`members/${id}`, member);
-  }
-
-  deleteMember(id: number): Observable<any> {
-    return this._apiService.delete(`members/${id}`);
   }
 
   getBorrowedBooks(id: number): Observable<any> {
@@ -56,3 +54,10 @@ export class MemberService {
     return this._apiService.patch(`members/${id}`, body);
   }
 }
+
+
+
+
+
+
+
