@@ -2,40 +2,19 @@
     <img src="../../../assets/images/logo.jpg">
 </div> -->
 <!-- Navbar -->
-<nav
-  class="navbar navbar-expand-lg navbar-dark"
-  style="background: #333030"
->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: #333030">
   <div class="container-fluid">
     <div class="navbar-brand bg-light rounded" href="#">
-      <img
-        src="../../../assets/images/logo.jpg"
-        class="rounded w-70"
-        height="50"
-        alt=""
-        loading="lazy"
-      />
+      <img src="../../../assets/images/logo.jpg" class="rounded w-70" height="50" alt="" loading="lazy" />
     </div>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent ">
       <ul class="navbar-nav me-auto mb-2 p-2 mb-lg-0 j">
         <li class="nav-item">
-          <a
-            class="nav-link  fw-bold"
-            style="color: #e57277"
-            [routerLink]="['/home']"
-            >Home</a
-          >
+          <a class="nav-link  fw-bold" style="color: #e57277" [routerLink]="['/home']">Home</a>
         </li>
         <li class="nav-item px-3">
           <a class="nav-link" [routerLink]="['/contact']">Contact Us</a>
@@ -48,13 +27,7 @@
         </li>
       </ul>
 
-      <div class="card mx-1 " style="background-color: #444; width: 13%">
-        <p-menubar
-          [model]="items"
-          class="m-0"
-          style="background-color: #444"
-        ></p-menubar>
-      </div>
+      <p-menubar [model]="items"></p-menubar>
     </div>
   </div>
 </nav>

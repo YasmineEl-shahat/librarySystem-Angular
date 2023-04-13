@@ -14,7 +14,6 @@ import { DashboardLayoutComponent } from './components/dashboard/dashboard-layou
 import { DashSidebarComponent } from './components/dashboard/dashboard-layout/dash-sidebar/dash-sidebar.component';
 import { DashNavbarComponent } from './components/dashboard/dashboard-layout/dash-navbar/dash-navbar.component';
 import { DashFooterComponent } from './components/dashboard/dashboard-layout/dash-footer/dash-footer.component';
-import { MemberModule } from './components/dashboard/member/member.module';
 import { HomeModule } from './components/home/home.module';
 
 @NgModule({
@@ -36,7 +35,6 @@ import { HomeModule } from './components/home/home.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MemberModule,
     HomeModule,
   ],
   exports: [MenubarModule, FormsModule, ReactiveFormsModule],

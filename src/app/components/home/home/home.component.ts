@@ -16,6 +16,7 @@ export class HomeComponent {
 
   books:Book[]=[];
   latestBooks:Book[]=[];
+  limit:number = 4;
 
   constructor(private _bookService:BookService) { }
 
@@ -40,10 +41,12 @@ export class HomeComponent {
 
 
   getAllBooks(){
-   this._bookService.get()
+   this._bookService.getLimit()
   .subscribe(
+    
     (response:any)=>{
      //JSON.stringify(response);
+     if (response.image) response.image = `https://localhost:8000/images/${response.image.split("images")[1]}`
        this.books=response;
        console.log(this.books);
        console.log(response);

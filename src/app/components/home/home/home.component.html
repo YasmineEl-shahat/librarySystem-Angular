@@ -1,5 +1,5 @@
 <div class="container-fluid mt-4">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
     <div id="carouselExampleControls" class="col carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
@@ -41,7 +41,7 @@
   </div>
   <div class="row mt-5">
     
-      <div class="col-md-4  col-sm-12 border p-2" *ngFor="let book of books">
+      <div class="col-md-3  col-sm-12 border p-2" *ngFor="let book of books">
         <div class="bookContainer w-100 h-50">
           <a class="bookLink"  routerLink="/book/details/1">
           <img src="../assets/images/slider3.jpg" class="bookImg w-100 h-100" alt="Snow">
@@ -54,7 +54,7 @@
         <li class="list_type_none pink-text"><i class="fa fa-calendar"></i> <span class=" ms-2" *ngIf="book.createdAt">{{book.createdAt |date}} </span> </li>
       </div>
       <p *ngIf="book.auther">Auther: {{book.auther}}</p>
-    <a class="link_decoration_none "  routerLink="/book/details/1">Show More  &raquo;</a>
+    <a class="link_decoration_none "*ngIf="book._id"  routerLink="/book/details/{{book._id}}">Show More  &raquo;</a>
 
     </div>
    
@@ -66,45 +66,20 @@
     <div class="col card-header p-3 h4">NEW ARRIVALS</div>
    </div>
 
-   <div class="row mt-5">
+   <div class="row mt-5"  *ngIf="latestBooks.length > 0">
     
-    <div class="col-md-4 col-sm-12 border p-2" >
+    <div class="col-md-4 col-sm-12 border p-2" *ngFor="let book of latestBooks">
       <img class="w-100 h-50" src="../assets/images/slider2.jpg">
-      <div class="h5">Tite</div>
+      <div class="h5" *ngIf="book.title">{{book.title}}</div>
     <div >
       
-      <li class="list_type_none pink-text"><i class="fa fa-calendar"></i> <span class=" ms-2">20-02-2020</span> </li>
+      <li class="list_type_none pink-text"><i class="fa fa-calendar"></i> <span class=" ms-2"*ngIf="book.createdAt">{{book.createdAt |date}}</span> </li>
     </div>
-    <p>descreption</p>
-  <a class="link_decoration_none"  routerLink="/book/details/1">Show More  &raquo;</a>
+    <p *ngIf="book.auther">Auther: {{book.auther}}</p>
+  <a class="link_decoration_none" *ngIf="book._id"  routerLink="/book/details/{{book._id}}">Show More  &raquo;</a>
 
   </div>
- 
-
-  <div class="col-md-4 col-sm-12 border p-2" >
-    <img class="w-100 h-50" src="../assets/images/slider2.jpg">
-    <div class="h5">Tite</div>
-  <div >
-    
-    <li class="list_type_none pink-text"><i class="fa fa-calendar"></i> <span class=" ms-2">20-02-2020</span> </li>
-  </div>
-  <p>descreption</p>
-<a class="link_decoration_none "  routerLink="/book/details/1">Show More  &raquo;</a>
-
-</div>
-
-<div class="col-md-4 col-sm-12 border p-2" >
-  <img class="w-100 h-50" src="../assets/images/slider2.jpg">
-  <div class="h5">Tite</div>
-<div >
-  
-  <li class="list_type_none pink-text"><i class="fa fa-calendar"></i> <span class=" ms-2">20-02-2020</span> </li>
-</div>
-<p>descreption</p>
-<a class="link_decoration_none pink_text"  routerLink="/book/details/1">Show More  &raquo;</a>
-
-</div>
-</div>
+   </div>
     
 
    </div>

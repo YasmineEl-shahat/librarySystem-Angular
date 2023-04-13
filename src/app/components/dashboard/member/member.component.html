@@ -1,17 +1,31 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Member</h1>
-  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+  <a
+    href="/dashboard/member/add-member"
+    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
     ><i class="fas fa-download fa-sm text-white-50"></i> Add new member</a
   >
 </div>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+         <!-- search -->
+
+          <div class="form-group">
+            <form class="form-inline" (ngSubmit)="addToSearchTerm(searchInput.value)">
+              <div class="input-group mx-sm-3 mb-2">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search" #searchInput>
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-prim"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+        </div>
   </div>
   <div class="card-body">
     <div class="table-responsive">
+
       <table
         class="table table-bordered"
         id="dataTable"
@@ -26,7 +40,7 @@
             <th>Phone Number</th>
             <th>Birthdate</th>
             <th>Full Adress</th>
-            <th>Image</th>
+            <!-- <th>Image</th> -->
             <th>readingBooks</th>
             <th>borrowedBooks</th>
             <th>Action</th>
@@ -38,18 +52,24 @@
             <td>{{ member.fullName }}</td>
             <td>{{ member.email }}</td>
             <td>{{ member.phoneNumber }}</td>
-            <td>{{ member.birthdate }}</td>
-            <td>{{ member.fullAddress?.building }} {{ member.fullAddress?.street }}, {{ member.fullAddress?.city }}</td>
-            <td>{{ member.image }}</td>
+            <td>{{ member.birthdate | date }}</td>
+            <td>
+              {{ member.fullAddress?.building }}
+              {{ member.fullAddress?.street }}, {{ member.fullAddress?.city }}
+            </td>
+            <!-- <td>{{ member.image }}</td> -->
             <td>{{ member.readingBooks }}</td>
             <td>{{ member.borrowedBooks }}</td>
             <td>
-              <a href="#" class="btn btn-info">Edit</a>
+              <a
+                href="/dashboard/member/edit-member/{{ member._id }}"
+                class="btn btn-info"
+                >Edit</a
+              >
               <!-- <a href="#" class="btn btn-danger">Delete</a> -->
-              <button class="btn btn-danger" (click)="deleteMember(member._id)">Delete</button>
+              <button class="btn btn-danger" (click)="deleteMember(member._id, $event)">Delete</button>
             </td>
           </tr>
-
         </tbody>
       </table>
     </div>

@@ -1,0 +1,173 @@
+<section class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <h1>add new admin</h1>
+        <div class="row g-0">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form">
+            <div class="form-group">
+              <label for="bookId">Book Id:</label>
+              <input
+                type="text"
+                formControlName="bookId"
+               
+                class="form-control"
+                placeholder="Enter Book ID"
+                [class.is-invalid]="isInValidAndTouched('bookId')"
+                [class.is-valid]="isValidControl('bookId')"
+                required
+              />
+              <div class="invalid-feedback">
+                <span *ngIf="isControlHasError('bookId', 'required')"
+                  >Please enter bookId</span
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="memberId">Last Name:</label>
+              <input
+                type="text"
+                formControlName="memberId"
+                id="memberId"
+                class="form-control"
+                placeholder="Enter Member Id"
+                [class.is-invalid]="isInValidAndTouched('memberId')"
+                [class.is-valid]="isValidControl('memberId')"
+                required
+              />
+              <div class="invalid-feedback">
+                <span *ngIf="isControlHasError('memberId', 'required')"
+                  >Please  Member Id</span
+                >
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="birthdate">Birth Date:</label>
+              <input
+                type="date"
+                formControlName="employeeId"
+                id="employeeId"
+                class="form-control"
+                placeholder="Enter EmployeeId"
+                [class.is-invalid]="isInValidAndTouched('employeeId')"
+                [class.is-valid]="isValidControl('employeeId')"
+                required
+              />
+  
+              <div class="invalid-feedback">
+                <span *ngIf="isControlHasError('employeeId', 'required')"
+                  >Please Employee Id</span
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="hiredate">Hire Date:</label>
+              <input
+                type="date"
+                formControlName="hiredate"
+                id="hiredate"
+                class="form-control"
+                placeholder="Select your hire date"
+                [class.is-invalid]="isInValidAndTouched('hiredate')"
+                [class.is-valid]="isValidControl('hiredate')"
+                required
+              />
+              <div class="invalid-feedback">
+                <span *ngIf="isControlHasError('hiredate', 'required')"
+                  >Please select your hire date</span
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="salary">Salary:</label>
+              <input
+                type="number"
+                formControlName="salary"
+                id="salary"
+                class="form-control"
+                placeholder="Enter your salary"
+                [class.is-invalid]="isInValidAndTouched('salary')"
+                [class.is-valid]="isValidControl('salary')"
+                required
+              />
+              <div class="invalid-feedback">
+                <span *ngIf="isControlHasError('salary', 'required')"
+                  >Please enter your salary</span
+                >
+                <span *ngIf="isControlHasError('salary', 'min')">
+                  salary should be more than or equal to 1000</span
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                formControlName="email"
+                id="email"
+                class="form-control"
+                placeholder="Enter your email address"
+                [class.is-invalid]="isInValidAndTouched('email')"
+                [class.is-valid]="isValidControl('email')"
+                required
+              />
+              <div
+                class="invalid-feedback"
+                *ngIf="isControlHasError('email', 'required')"
+              >
+                Email is required.
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="isControlHasError('email', 'email')"
+              >
+                Invalid email format.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="mr-2" for="basic">Basic:</label>
+              <div class="form-check-inline">
+                <input
+                  type="radio"
+                  formControlName="isBase"
+                  id="basic-yes"
+                  class="form-check-input"
+                  [value]="true"
+                  required
+                />
+                <label for="basic-yes" class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check-inline">
+                <input
+                  type="radio"
+                  formControlName="isBase"
+                  id="basic-no"
+                  class="form-check-input"
+                  [value]="false"
+                  required
+                />
+                <label for="basic-no" class="form-check-label">No</label>
+              </div>
+              <div
+                *ngIf="isControlHasError('isBase', 'required')"
+                class="invalid-feedback"
+              >
+                Please select whether the admin is basic or not.
+              </div>
+            </div>
+  
+            <div class="invalid" *ngIf="errMsg">{{ errMsg }}</div>
+  
+            <button
+              type="submit"
+              [disabled]="addForm.invalid"
+              class="btn btn-prim"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
