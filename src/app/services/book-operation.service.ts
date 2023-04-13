@@ -10,9 +10,9 @@ export class BookOperationService {
   allBorrowedBook() {
     return this.apiService.get(`book/borrowed`);
   }
-  // get(id: number) {
-  //   return this.apiService.get(`admins/${id}`);
-  // }
+  addBorrowOperation(operation: any ) {
+    return this.apiService.post(`book/borrow`,operation );
+  }
   // post(body: any) {
   //   return this.apiService.post(`admins`, body);
   // }
