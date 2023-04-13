@@ -1,1 +1,49 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Borrow</h1>
+    <a routerLinkActive="router-link-active" href="/dashboard/book/add-borrow-bookOperation"
+        class="d-none d-sm-inline-block btn btn-sm   shadow-sm" style="background-color:  #E57277 ; color: white;"><i
+            class="fas fa-download fa-sm text-dark-50"></i> Add Book</a>
+</div>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold " style="color:  #E57277 ; ">DataTables Operations</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <!-- <th>MemberId</th>
+              <th>EmployeeId</th>
+              <th>DeadlineDate</th>
+              <th>ReturnDate</th>
+              <th>Type</th>
+              <th>Return</th> -->
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books.slice((currentPage - 1) * pageSize, currentPage * pageSize)">
 
+                        <td>{{ book._id }}</td>
+                        <td>{{ book.title }}</td>
+
+                        <td>
+                            <a [href]="'/dashboard/book/add-borrow-bookOperation/' +book._id" class="btn btn-outline-success m-1">Borrow</a>
+                            <button class="btn btn-outline-info m-1">Read</button>
+                            <a href="#" class="btn btn-outline-warning m-1">Update</a>
+                            <button class="btn btn-outline-danger m-1">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- {{ currentPage }} -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+<!-- <button [disabled]="currentPage === 1" (click)="onPreviousClick()">Previous</button> -->

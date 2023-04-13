@@ -33,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    
+
     loadChildren: () =>
       import('./components/user/user.module').then((m) => m.UserModule),
   },
