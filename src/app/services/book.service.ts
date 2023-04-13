@@ -23,5 +23,7 @@ export class BookService {
    getBook(id: any){
     return this._apiService.get(`books/${id}`);
   }
-
+  updateBook(id: any, book: any){
+    return this._apiService.patch(`books/${id}`, book);
+  }
 }

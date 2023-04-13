@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule ,FormGroup} from '@angular/forms';
 import { BooksComponent } from './books/books.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
+
+
 
 @NgModule({
   declarations: [
@@ -12,6 +14,6 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     AddBookComponent,
     EditBookComponent
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,FormGroup],
 })
 export class BookModule {}
