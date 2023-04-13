@@ -19,6 +19,10 @@ import { BookOperationModule } from './bookOperation/book-operation.module';
 import { MemberModule } from './member/member.module';
 import { AddMemberComponent } from './member/add-member/add-member.component';
 import { EditMemberComponent } from './member/edit-member/edit-member.component';
+import { BookModule } from '../book/book.module';
+import { BooksComponent } from './book/books/books.component';
+import { AddBookComponent } from './book/add-book/add-book.component';
+import { EditBookComponent } from './book/edit-book/edit-book.component';
 
 const routes: Routes = [
   {
@@ -33,6 +37,11 @@ const routes: Routes = [
       { path: 'employee/add-employee', component: AddEmployeeComponent },
       { path: 'employee/edit-employee/:id', component: EditEmployeeComponent },
       { path: 'member/member', component: MemberComponent },
+      { path: 'member/add-member', component: AddMemberComponent },
+      { path: 'member/edit-member/:id', component: EditMemberComponent },
+      { path: 'book/books', component: BooksComponent },
+      { path: 'book/add-book', component: AddBookComponent },
+      { path: 'book/edit-book/:id', component: EditBookComponent },
       {
         path: 'bookOperation/borrow',
         component: BorrowBookOperationComponent,
@@ -57,8 +66,6 @@ const routes: Routes = [
         path: 'bookOperation/edit-read-bookOperation',
         component: EditBorrowBookOperationComponent,
       },
-      { path: 'member/add-member', component: AddMemberComponent },
-      { path: 'member/edit-member/:id', component: EditMemberComponent },
     ],
   },
 ];
@@ -69,6 +76,7 @@ const routes: Routes = [
     EmployeeModule,
     MemberModule,
     BookOperationModule,
+    BookModule,
     RouterModule.forChild(routes),
   ],
   exports: [RouterModule],
