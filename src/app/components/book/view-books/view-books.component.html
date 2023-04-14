@@ -108,7 +108,7 @@
           <div class="row">
             <div
               class="card card-bg text-center col-xs-6 col-sm-4 col-md-3 col-lg-3 m-3"
-              *ngFor="let book of books"
+              *ngFor="let book of books  | paginate: { itemsPerPage: 6, currentPage: currentPage }"
               style="width: 16rem"
             >
               <img
@@ -128,6 +128,10 @@
           </div>
         </div>
       </div>
+      
     </div>
+    <div class="container text-center">
+      <pagination-controls (pageChange)="currentPage = $event" class=""></pagination-controls>
+  </div>
   </div>
 </div>

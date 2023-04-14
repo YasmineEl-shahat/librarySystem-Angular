@@ -40,8 +40,8 @@
             <td>{{ employee.lname }}</td>
             <td>{{ employee.email }}</td>
             <td>{{ employee.salary }}</td>
-            <td>{{ employee.birthdate }}</td>
-            <td>{{ employee.hiredate }}</td>
+            <td>{{ employee.birthdate | date}}</td>
+            <td>{{ employee.hiredate | date }}</td>
             <!-- <td>
               <img
                 *ngIf="employee.image"

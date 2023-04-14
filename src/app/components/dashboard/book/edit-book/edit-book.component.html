@@ -1,6 +1,6 @@
 <div class="container">
-    <h2  style="color: #E57277;" class="text-center fw-bold">Edit Book</h2>
-<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <h2 style="color: #E57277;" class="text-center fw-bold">Edit Book</h2>
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="title">Title </label>
       <input type="text" class="form-control" id="title" formControlName="title" value={{book.title}}>
@@ -19,7 +19,8 @@
     </div>
     <div class="form-group">
       <label for="numOfCopies">numOfCopies</label>
-      <input type="number" class="form-control" id="numOfCopies" formControlName="numOfCopies" value={{book.numOfCopies}}>
+      <input type="number" class="form-control" id="numOfCopies" formControlName="numOfCopies"
+        value={{book.numOfCopies}}>
     </div>
     <div class="form-group">
       <label for="pages">pages</label>
@@ -31,19 +32,20 @@
     </div>
     <div class="form-group">
       <label for="avilable">avilable</label>
-      <input type="number" class="form-control" id="avilable" formControlName="avilable" required value={{book.avilable}}>
+      <input type="number" class="form-control" id="avilable" formControlName="avilable" required
+        value={{book.avilable}}>
     </div>
-    
+
     <div class="form-group">
       <label for="shelfNo">shelfNo</label>
       <input type="number" class="form-control" id="shelfNo" formControlName="shelfNo" required value={{book.shelfNo}}>
     </div>
-    
+
     <!-- <div class="form-group">
       <label for="image">Image</label>
       <input type="file" class="form-control-file" id="image" name="image" (change)="onFileSelected($event)" value="{{book.image}}">
     </div> -->
-    <button type="submit" class="btn btn-primary my-5" style="background-color: #e57277; outline:#e57277; border:#e57277">Update</button>
+    <button type="submit" class="btn btn-primary my-5"  [disabled]="bookForm.invalid"
+      style="background-color: #e57277; outline:#e57277; border:#e57277">Update</button>
   </form>
 </div>
-    

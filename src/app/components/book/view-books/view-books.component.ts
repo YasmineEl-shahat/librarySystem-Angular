@@ -12,6 +12,7 @@ import { Title } from '@angular/platform-browser';
 export class ViewBooksComponent {
   books: Book[] = [];
   latestBooks: Book[] = [];
+  currentPage: number = 1;
   formPost = new FormControl({});
   // searchForm: FormGroup<{ title: FormControl<string | null>; publishingDate: FormControl<string | null>; publisher: FormControl<string | null>; category: FormControl<string | null>; auther: FormControl<string | null>; }> | undefined;
   range(start: number, end: number): number[] {
@@ -43,6 +44,7 @@ export class ViewBooksComponent {
 
   async searchBooks() {
     let formData = {};
+
     if (
       this.searchForm.value.title &&
       this.searchForm.value.title.trim() != ''

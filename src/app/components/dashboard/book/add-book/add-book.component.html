@@ -1,7 +1,7 @@
 <section class="container h-100">
   <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col col-xl-10">
-      <h1>add new book</h1>
+      <h1 style="color: #E57277;" class="text-center fw-bold">add new book</h1>
       <div class="row g-0">
         <form
           [formGroup]="addForm"
@@ -217,7 +217,7 @@
           </div>
 
           <div class="invalid" *ngIf="errMsg">{{ errMsg }}</div>
-          <button type="submit" class="btn btn-prim">Submit</button>
+          <button type="submit"   [disabled]="addForm.invalid" class="btn btn-prim my-5">Submit</button>
         </form>
       </div>
     </div>
