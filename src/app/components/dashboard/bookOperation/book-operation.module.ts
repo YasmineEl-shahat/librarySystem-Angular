@@ -4,9 +4,10 @@ import { BorrowBookOperationComponent } from './book-borrow-operation/book-opera
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BookReadOperationComponent } from './book-read-operation/book-read-operation.component';
 
 @NgModule({
-  declarations: [BorrowBookOperationComponent],
+  declarations: [BorrowBookOperationComponent , BookReadOperationComponent],
   imports: [
     CommonModule,
     NgxPaginationModule,

@@ -23,6 +23,9 @@ import { BooksComponent } from './book/books/books.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
 import { AddBorrowOperationComponent } from './book/add-borrow-operation/add-borrow-operation.component';
+import { AddBookReadOperationComponent } from './book/add-book-read-operation/add-book-read-operation.component';
+import { BookReadOperationComponent } from './bookOperation/book-read-operation/book-read-operation.component';
+import { BookDetailsComponent } from '../book/book-details/book-details.component';
 
 const routes: Routes = [
   {
@@ -54,14 +57,17 @@ const routes: Routes = [
       //   path: 'bookOperation/edit-borrow-bookOperation',
       //   component: EditBorrowBookOperationComponent,
       // },
-      // {
-      //   path: 'bookOperation/read',
-      //   component: BorrowBookOperationComponent,
-      // },
-      // {
-      //   path: 'bookOperation/add-read-bookOperation',
-      //   component: AddBorrowBookOperationComponent,
-      // },
+      {
+        path: 'bookOperation/read',
+        component: BookReadOperationComponent,
+      },
+      {
+        path: 'book/add-read-bookOperation/:id',
+        component: AddBookReadOperationComponent,
+      }, {
+        path: 'book/details/:id',
+        component: BookDetailsComponent,
+      },
       // {
       //   path: 'bookOperation/edit-read-bookOperation',
       //   component: EditBorrowBookOperationComponent,

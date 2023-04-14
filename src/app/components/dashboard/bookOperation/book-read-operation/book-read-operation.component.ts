@@ -3,20 +3,19 @@ import { BookOperation } from 'src/app/models/book-operation';
 import { BookOperationService } from 'src/app/services/book-operation.service';
 
 @Component({
-  selector: 'app-book-operation',
-  templateUrl: './book-operation.component.html',
-  styleUrls: ['./book-operation.component.css'],
+  selector: 'app-book-read-operation',
+  templateUrl: './book-read-operation.component.html',
+  styleUrls: ['./book-read-operation.component.css']
 })
-export class BorrowBookOperationComponent {
+export class BookReadOperationComponent {
   operations: BookOperation[] = [];
   currentPage = 1; // current page number
-
-  constructor(private bookOperarionService: BookOperationService) {}
+  constructor(private bookOperarionService: BookOperationService){}
   ngOnInit() {
     this.getAllOperations();
   }
   getAllOperations() {
-    this.bookOperarionService.allBorrowedBook().subscribe(
+    this.bookOperarionService.allReadBook().subscribe(
       (response: any) => {
         this.operations = response.data;
       },
@@ -25,4 +24,5 @@ export class BorrowBookOperationComponent {
       }
     );
   }
+
 }
