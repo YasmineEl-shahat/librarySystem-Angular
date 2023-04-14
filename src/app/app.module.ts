@@ -15,6 +15,7 @@ import { DashSidebarComponent } from './components/dashboard/dashboard-layout/da
 import { DashNavbarComponent } from './components/dashboard/dashboard-layout/dash-navbar/dash-navbar.component';
 import { DashFooterComponent } from './components/dashboard/dashboard-layout/dash-footer/dash-footer.component';
 import { HomeModule } from './components/home/home.module';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HomeModule } from './components/home/home.module';
     DashSidebarComponent,
     DashNavbarComponent,
     DashFooterComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

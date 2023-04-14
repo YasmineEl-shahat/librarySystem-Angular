@@ -5,6 +5,7 @@ import { IsLoginGuard } from './guards/is-login.guard';
 import { IsAdminGuard } from './guards/is-admin.guard';
 import { IsStaffGuard } from './guards/is-staff.guard';
 import { IsActiveGuard } from './guards/is-active.guard';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./components/book/book.module').then((m) => m.BookModule),
   },
+  {path:'**',component:NotFoundComponent}
 ];
 
 @NgModule({

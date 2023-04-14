@@ -21,7 +21,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="m-2">
-    <a class="nav-link" routerLink="Home">
+    <a class="nav-link" routerLink="/home">
       <i class="fas fa-fw fa-tachometer-alt mx-1"></i>
       <span>Home page</span></a
     >
@@ -35,7 +35,7 @@
   <!-- <div class="sidebar-heading">Interface</div> -->
 
   <!-- Nav Item - Pages Collapse Menu -->
-  <li class="m-2">
+  <li class="m-2" *ngIf="role=='badmin'">
     <a class="nav-link" routerLink="/dashboard/admin/basic-admin">
       <i class="fas fa-fw fa-tachometer-alt mx-1"></i>
       <span>Basic Admin</span></a
@@ -43,14 +43,14 @@
   </li>
 
   <!-- Nav Item - Utilities Collapse Menu -->
-  <li class="m-2">
+  <li class="m-2" *ngIf=" role=='badmin'">
     <a class="nav-link" routerLink="/dashboard/admin/admin">
       <i class="fas fa-fw fa-tachometer-alt mx-1"></i>
       <span>Admin</span></a
     >
   </li>
 
-  <li class="m-2">
+  <li class="m-2" *ngIf=" role!='employee'">
     <a class="nav-link" routerLink="/dashboard/employee/employee">
       <i class="fas fa-fw fa-tachometer-alt mx-1"></i>
       <span>Employee</span></a
