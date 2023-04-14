@@ -9,26 +9,20 @@
       <label for="phoneNumber">Phone Number</label>
       <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber" value={{user.phoneNumber}}>
     </div>
-    <div class="form-group">
-      <label for="birthdate">Birthdate</label>
-      <input type="date" class="form-control" id="birthdate" formControlName="birthdate" value={{user.birthdate}} >
-    </div>
+    
     <div class="form-group">
       <label for="city">City</label>
-      <input type="text" class="form-control" id="city" formControlName="city" required value={{city}}>
+      <input type="text" class="form-control" id="city" formControlName="city" required value={{user.fullAddress?.city}}>
     </div>
     <div class="form-group">
       <label for="street">Street</label>
-      <input type="text" class="form-control" id="street" formControlName="street" required value={{street}}>
+      <input type="text" class="form-control" id="street" formControlName="street" required value={{user.fullAddress?.street}}>
     </div>
     <div class="form-group">
       <label for="building">Building</label>
-      <input type="text" class="form-control" id="building" formControlName="building" required value={{building}}>
+      <input type="text" class="form-control" id="building" formControlName="building" required value={{user.fullAddress?.building}}>
     </div>
-    <div class="form-group">
-      <label for="image">Image</label>
-      <input type="file" class="form-control-file" id="image" name="image" (change)="onFileSelected($event)">
-    </div>
+    
     <button type="submit" class="btn btn-primary" style="background-color: #e57277; outline:#e57277; border:#e57277">Update</button>
   </form>
 </div>

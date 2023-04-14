@@ -14,8 +14,8 @@ export class IsAdminGuard implements CanActivate {
       return new Promise(resolve=>{
       let admin:any=this._userCredintialService.getCredintial();
       let role=admin.role;
-      if(role != "admin"){
-      this._router.navigate(['/']);
+      if(role != "admin" ||role != "badmin"){
+        this._router.navigateByUrl('/notFound');
       return resolve(false)
       }
       else

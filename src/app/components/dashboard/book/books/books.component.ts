@@ -5,42 +5,37 @@ import { BookService } from 'src/app/services/book.service';
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  styleUrls: ['./books.component.css'],
 })
 export class BooksComponent {
   books: Book[] = [];
-  currentPage : number= 1; // current page number
-  pageSize : number = 3; // number of items to display per page
+  currentPage: number = 1; // current page number
 
   constructor(private bookService: BookService) {}
   ngOnInit() {
-   this.getAlBooks();
+    this.getAlBooks();
   }
 
-  // get totalPages(): number {
-  //   return Math.ceil(this.books.length / this.pageSize);
-  // }
-
-  // onPreviousClick() {
-  //   if (this.currentPage > 1) {
-  //     this.currentPage--;
-  //   }
-  // }
-
-  // onNextClick() {
-  //   if (this.currentPage < this.totalPages) {
-  //     this.currentPage++;
-  //   }
-  // }
   getAlBooks() {
     this.bookService.get().subscribe(
       (response: any) => {
-        console.log(response)
+        console.log(response);
         this.books = response;
-       
       },
       (error: any) => {
-        //  alert("error");
+         console.log(error);
+      }
+    );
+  }
+
+  deleteBook(id:number){
+    this.bookService.delete(id).subscribe(
+      (response: any) => {
+        this.getAlBooks();
+        console.log(response);
+      },
+      (error: any) => {
+        console.log(error);
       }
     );
   }

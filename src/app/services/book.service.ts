@@ -19,15 +19,23 @@ export class BookService {
     return this._apiService.get(`newBooks`);
   }
 
-  getBook(id: string) {
+  getBook(id: any){
     return this._apiService.get(`books/${id}`);
   }
-
-  searchBook(formData: any) {
-    return this._apiService.post(`bookSearchFilter`, formData);
+  updateBook(id: any, book: any){
+    console.log(`books/${id}`);
+    return this._apiService.patch(`books/${id}`, book);
+  }
+  searchBook(formData: any){
+    return this._apiService.post(`bookSearchFilter`,formData);
   }
 
   addBook(data: any) {
     return this._apiService.post(`books`, data);
   }
+
+  delete(id:number){
+    return this._apiService.delete(`books/${id}`);
+  }
+
 }

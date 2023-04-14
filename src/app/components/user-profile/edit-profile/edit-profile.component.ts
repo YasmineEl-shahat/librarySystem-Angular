@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import the FormGroup and FormBuilder classes
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserCredintialService } from 'src/app/services/user-credintial.service';
 import { Router } from '@angular/router';
 
@@ -24,45 +24,44 @@ export class EditProfileComponent implements OnInit {
 
   constructor(private fb: FormBuilder,private userCredintialService: UserCredintialService,private MemberService:MemberService,private router: Router ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
     const userCredintial:any = this.userCredintialService.getCredintial();
     this.id = userCredintial.id;
-    this.MemberService.getById(this.id).subscribe(
-      (response:any)=>{     
-      this.user = response.data[0];
-      this.city=this.user.fullAddress?.city||"";
-      this.street=this.user.fullAddress?.street ||"";
-      this.building=this.user.fullAddress?.building ||0;
-      console.log(this.user);
-      });
+    let res :any =await this.MemberService.getById(this.id).toPromise();
+    this.user = res.data[0];
+      // (response:any)=>{     
+      // this.user = response.data[0];
+      // this.city=this.user.fullAddress?.city||"";
+      // this.street=this.user.fullAddress?.street ||"";
+      // this.building=this.user.fullAddress?.building ||0;
+      // console.log(this.user);
+      // });
     this.memberForm = this.fb.group({
-      fullName: [this.user.fullName, Validators.required],
-      phoneNumber: [this.user.phoneNumber, Validators.required],
-      birthdate: [this.user.birthdate, Validators.required],
-      city: [this.city, Validators.required],
-      street: [this.street, Validators.required],
-      building: [this.building, Validators.required],
-      image: [this.user.image, Validators.required]
+      fullName: [this.user.fullName, [Validators.required]],
+      phoneNumber: [this.user.phoneNumber, [Validators.required]],
+      city: [this.user.fullAddress?.city, [Validators.required]],
+      street: [this.user.fullAddress?.street, [Validators.required]],
+      building: [this.user.fullAddress?.building, [Validators.required]],
     });
   }
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-  }
+  // onFileSelected(event: any) {
+  //   this.selectedFile = event.target.files[0];
+  // }
 
   onSubmit() {
     // Handle form submission logic here
-    let formData = new FormData();
-    if (this.image != null) {
-      formData.append('image', this.image, this.image?.name);
-    }
-    formData.append('fullName', this.memberForm.value.fullName);
-    formData.append('phoneNumber', this.memberForm.value.phoneNumber);
-    formData.append('city', this.memberForm.value.city);
-    formData.append('street', this.memberForm.value.street);
-    formData.append('building', this.memberForm.value.building);
-    formData.append('birthdate', this.memberForm.value.birthdate);
-    this.MemberService.updateProfile(this.id,formData).subscribe(
+    // let formData = new FormData();
+    // formData.append('fullName', this.memberForm.value.fullName);
+    // formData.append('phoneNumber', this.memberForm.value.phoneNumber);
+    // formData.append('city', this.memberForm.value.city);
+    // formData.append('street', this.memberForm.value.street);
+    // formData.append('building', this.memberForm.value.building);
+    // console.log(this.memberForm.value);
+    // console.log(formData.get('fullName'));
+    // console.log(formData.get('phoneNumber'));
+    // console.log(formData);
+    this.MemberService.updateProfile(this.id,this.memberForm.value).subscribe(
       (res:any) => {
         this.router.navigate(['/profile']);
       }
