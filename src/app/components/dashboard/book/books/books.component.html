@@ -1,6 +1,6 @@
 <!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Borrow</h1>
+<div class="d-sm-flex align-items-center justify-content-between mb-4  ">
+    <h1 class="h3 mb-0 text-gray-800 fw-bold">Book</h1>
     <a routerLinkActive="router-link-active" href="/dashboard/book/add-book"
         class="d-none d-sm-inline-block btn btn-sm   shadow-sm" style="background-color:  #E57277 ; color: white;"><i
             class="fas fa-download fa-sm text-dark-50"></i> Add Book</a>
@@ -37,14 +37,25 @@
                                 class="btn btn-outline-success m-1">Borrow</a>
                             <a [href]="'/dashboard/book/add-read-bookOperation/' +book._id"
                                 class="btn btn-outline-info m-1">Read</a>
-                            <a [href]="'/dashboard/book/edit-book/' +book._id" class="btn btn-outline-warning m-1">Update</a>
-                            <button  class="btn btn-outline-danger m-1" (click)="deleteBook(book._id)">Delete</button>
+                            <a [href]="'/dashboard/book/edit-book/' +book._id"
+                                class="btn btn-outline-warning m-1">Update</a>
+                            <button class="btn btn-outline-danger m-1" (click)="deleteBook(book._id)">Delete</button>
                         </td>
                     </tr>
+
                 </tbody>
+
             </table>
+
         </div>
+
     </div>
+    <div class="container m-3">
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
+
 </div>
-<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+
+
+
 <!-- <button [disabled]="currentPage === 1" (click)="onPreviousClick()">Previous</button> -->

@@ -1,7 +1,7 @@
 <section class="container h-100">
   <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col col-xl-10">
-      <h1>Add new employee</h1>
+      <h1 style="color: #E57277;" class="text-center fw-bold">Add new employee</h1>
       <div class="row g-0">
         <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form">
           <div class="form-group">
@@ -130,7 +130,7 @@
           <button
             type="submit"
             [disabled]="addForm.invalid"
-            class="btn btn-prim"
+            class="btn btn-prim  my-5"
           >
             Submit
           </button>

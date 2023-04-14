@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Edit Book</h2>
+    <h2  style="color: #E57277;" class="text-center fw-bold">Edit Book</h2>
 <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="title">Title </label>
@@ -43,7 +43,7 @@
       <label for="image">Image</label>
       <input type="file" class="form-control-file" id="image" name="image" (change)="onFileSelected($event)" value="{{book.image}}">
     </div> -->
-    <button type="submit" class="btn btn-primary" style="background-color: #e57277; outline:#e57277; border:#e57277">Update</button>
+    <button type="submit" class="btn btn-primary my-5" style="background-color: #e57277; outline:#e57277; border:#e57277">Update</button>
   </form>
 </div>
     

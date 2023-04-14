@@ -1,16 +1,16 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Employee</h1>
+  <h1 class="h3 mb-0 text-gray-800 fw-bold"  >Employee</h1>
   <a
     href="/dashboard/employee/add-employee"
-    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-    ><i class="fas fa-download fa-sm text-white-50"></i> Add new employee
+    class="d-none d-sm-inline-block btn btn-sm  shadow-sm" style="background-color:  #E57277 ;border:1px solid #E57277; color: white;"
+    ><i class="fas fa-download fa-sm text-white-50" ></i> Add new employee
   </a>
 </div>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    <h6 class="m-0 font-weight-bold "  style="color:  #E57277 ; ">DataTables Example</h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -29,12 +29,12 @@
             <th>Salary</th>
             <th>Birthdate</th>
             <th>Hiredate</th>
-            <th>Image</th>
+            <!-- <th>Image</th> -->
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let employee of employees">
+          <tr *ngFor="let employee of employees  | paginate: { itemsPerPage: 4, currentPage: currentPage }">
             <td>{{ employee._id }}</td>
             <td>{{ employee.fname }}</td>
             <td>{{ employee.lname }}</td>
@@ -42,7 +42,7 @@
             <td>{{ employee.salary }}</td>
             <td>{{ employee.birthdate }}</td>
             <td>{{ employee.hiredate }}</td>
-            <td>
+            <!-- <td>
               <img
                 *ngIf="employee.image"
                 [src]="employee.image"
@@ -50,15 +50,15 @@
                 width="150"
                 height="150"
               />
-            </td>
+            </td> -->
             <td>
               <a
                 href="/dashboard/employee/edit-employee/{{ employee._id }}"
-                class="btn btn-info"
+                class="btn btn-outline-warning m-1"
                 >Edit</a
               >
               <button
-                class="btn btn-danger"
+              class="btn btn-outline-danger m-1"
                 (click)="deleteEmployee(employee._id)"
               >
                 Delete
@@ -69,4 +69,7 @@
       </table>
     </div>
   </div>
+  <div class="container m-3">
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
 </div>

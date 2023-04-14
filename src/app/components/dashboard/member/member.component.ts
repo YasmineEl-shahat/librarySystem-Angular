@@ -10,6 +10,7 @@ import { Member } from 'src/app/models/member';
 export class MemberComponent implements OnInit {
   memberObj: Member[] = [];
   searchTerm: string[] = [];
+  currentPage: number = 1;
   constructor(public memberService: MemberService) {}
 
   ngOnInit() {

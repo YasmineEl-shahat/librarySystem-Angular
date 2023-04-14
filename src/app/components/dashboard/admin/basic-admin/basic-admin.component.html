@@ -1,25 +1,18 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Admin</h1>
-  <a
-    href="/dashboard/admin/add-admin"
-    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-    ><i class="fas fa-download fa-sm text-white-50"></i> Add new admin</a
-  >
+  <h1 class="h3 mb-0 text-gray-800 fw-bold">Admin</h1>
+  <a href="/dashboard/admin/add-admin" class="d-none d-sm-inline-block btn btn-sm shadow-sm"
+    style="background-color:  #E57277 ;border:1px solid #E57277; color: white;"><i
+      class="fas fa-download fa-sm text-white-50"></i> Add new admin</a>
 </div>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    <h6 class="m-0 font-weight-bold " style=" color: #E57277;">DataTables Example</h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table
-        class="table table-bordered"
-        id="dataTable"
-        width="100%"
-        cellspacing="0"
-      >
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th>Id</th>
@@ -29,20 +22,20 @@
             <th>Salary</th>
             <th>Birthdate</th>
             <th>Hiredate</th>
-            <th>Image</th>
+            <!-- <th>Image</th> -->
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let admin of admins">
+          <tr *ngFor="let admin of admins | paginate: { itemsPerPage: 4, currentPage: currentPage }">
             <td>{{ admin._id }}</td>
             <td>{{ admin.fname }}</td>
             <td>{{ admin.lname }}</td>
             <td>{{ admin.email }}</td>
             <td>{{ admin.salary }}</td>
-            <td>{{ admin.birthdate }}</td>
-            <td>{{ admin.hiredate }}</td>
-            <td>
+            <td>{{ admin.birthdate | date }}</td>
+            <td>{{ admin.hiredate | date }}</td>
+            <!-- <td>
               <img
                 *ngIf="admin.image"
                 [src]="admin.image"
@@ -50,14 +43,10 @@
                 width="150"
                 height="150"
               />
-            </td>
+            </td> -->
             <td>
-              <a
-                href="/dashboard/admin/edit-admin/{{ admin._id }}"
-                class="btn btn-info"
-                >Edit</a
-              >
-              <button class="btn btn-danger" (click)="deleteAdmin(admin._id)">
+              <a href="/dashboard/admin/edit-admin/{{ admin._id }}" class="btn btn-outline-warning m-1">Edit</a>
+              <button class="btn btn-outline-danger m-1" (click)="deleteAdmin(admin._id)">
                 Delete
               </button>
             </td>
@@ -65,5 +54,8 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="container m-3">
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
   </div>
 </div>

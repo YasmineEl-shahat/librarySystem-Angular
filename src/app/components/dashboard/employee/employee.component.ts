@@ -9,7 +9,7 @@ import { EmployeeRequest } from 'src/app/models/employee';
 })
 export class EmployeeComponent implements OnInit {
   employees: EmployeeRequest[] = [];
-
+  currentPage: number = 1;
   constructor(public employeeService: EmployeeService) {}
 
   ngOnInit() {

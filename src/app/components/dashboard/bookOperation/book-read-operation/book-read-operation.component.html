@@ -1,8 +1,7 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Borrow</h1>
-    <a   routerLinkActive="router-link-active"  href="/dashboard/bookOperation/add-borrow-bookOperation"   class="d-none d-sm-inline-block btn btn-sm   shadow-sm" style="background-color:  #E57277 ; color: white;"><i
-        class="fas fa-download fa-sm text-dark-50"></i> Add Borrow Operation</a>
+    <h1 class="h3 mb-0 text-gray-800 fw-bold">Read</h1>
+   
   </div>
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
@@ -22,7 +21,7 @@
               <th>ReturnDate</th>
               <th>Type</th>
               <th>Return</th>
-              <th>Actions</th>
+            
             </tr>
           </thead>
           <tbody>
@@ -35,18 +34,17 @@
               <td>{{ operation.returnDate | date }}</td>
               <td>{{ operation.type }} </td>
               <td>{{ operation.return }}</td>
-              <td>
-                <a href="#" class="btn btn-outline-success m-1">Edit</a>
-  
-                <button class="btn btn-outline-danger m-1">Delete</button>
-              </td>
+              
             </tr>
   
           </tbody>
         </table>
       </div>
     </div>
+    <div class="container m-3">
+      <pagination-controls (pageChange)="currentPage = $event" ></pagination-controls>
+    </div>
   </div>
-  <pagination-controls (pageChange)="currentPage = $event" ></pagination-controls>
-  <!-- <button [disabled]="currentPage === 1" (click)="onPreviousClick()">Previous</button> -->
+
+
   

@@ -9,7 +9,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class BasicAdminComponent {
   admins: AdminRequest[] = [];
-
+  currentPage: number = 1;
   constructor(public _adminService: AdminService) {}
 
   ngOnInit() {
