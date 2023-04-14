@@ -1,12 +1,13 @@
-.main-book{
+.main-book {
   padding-top: 100px;
 }
-.title
-{
+.title {
   font-size: large;
+  text-align: center;
+  padding-bottom: 2rem;
   font-size: 50px;
   font-weight: 500;
 }
-.info span{
+.info span {
   font-weight: bold;
 }

@@ -1,7 +1,24 @@
-.form-select{
+.form-select {
   width: 70% !important;
   margin: auto;
 }
-.form-check{
+.form-check {
   margin: auto;
+}
+form {
+  font-size: 18px;
+  color: black;
+}
+input,
+select {
+  margin-bottom: 5px;
+  border-color: #e57277;
+}
+input:focus,
+select:focus {
+  box-shadow: 0 0 8px 0.1rem #e57277;
+}
+.card-title {
+  font-size: 18px;
+  color: #e57277;
 }

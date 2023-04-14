@@ -1,1 +1,225 @@
-<p>add-book works!</p>
+<section class="container h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col col-xl-10">
+      <h1>add new book</h1>
+      <div class="row g-0">
+        <form
+          [formGroup]="addForm"
+          (ngSubmit)="onSubmit()"
+          class="form"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input
+              type="text"
+              formControlName="title"
+              id="title"
+              class="form-control"
+              placeholder="Enter Book Title"
+              [class.is-invalid]="isInValidAndTouched('title')"
+              [class.is-valid]="isValidControl('title')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('title', 'required')"
+                >Please Enter Book Title</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="auther">Auther:</label>
+            <input
+              type="text"
+              formControlName="auther"
+              id="auther"
+              class="form-control"
+              placeholder="Enter Book Auther"
+              [class.is-invalid]="isInValidAndTouched('auther')"
+              [class.is-valid]="isValidControl('auther')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('auther', 'required')"
+                >Please Enter Book Auther</span
+              >
+            </div>
+          </div>
+          <!--  -->
+          <div class="form-group">
+            <label for="publisher">Publisher:</label>
+            <input
+              type="text"
+              formControlName="publisher"
+              id="publisher"
+              class="form-control"
+              placeholder="Enter Book Publisher"
+              [class.is-invalid]="isInValidAndTouched('publisher')"
+              [class.is-valid]="isValidControl('publisher')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('publisher', 'required')"
+                >Please Enter Book Publisher</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <input
+              type="text"
+              formControlName="category"
+              id="category"
+              class="form-control"
+              placeholder="Enter Book Category"
+              [class.is-invalid]="isInValidAndTouched('category')"
+              [class.is-valid]="isValidControl('category')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('category', 'required')"
+                >Please Enter Book Category</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="edition">Edition:</label>
+            <input
+              type="number"
+              formControlName="edition"
+              id="edition"
+              class="form-control"
+              placeholder="Enter Book Edition"
+              [class.is-invalid]="isInValidAndTouched('edition')"
+              [class.is-valid]="isValidControl('edition')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('edition', 'required')"
+                >Please Enter Book Edition</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pages">Pages:</label>
+            <input
+              type="number"
+              formControlName="pages"
+              id="pages"
+              class="form-control"
+              placeholder="Enter Number of Pages"
+              [class.is-invalid]="isInValidAndTouched('pages')"
+              [class.is-valid]="isValidControl('pages')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('pages', 'required')"
+                >Please Enter Number of Pages</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="avilable">Available:</label>
+            <input
+              type="number"
+              formControlName="avilable"
+              id="avilable"
+              class="form-control"
+              placeholder="Enter Available Number"
+              [class.is-invalid]="isInValidAndTouched('avilable')"
+              [class.is-valid]="isValidControl('avilable')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('avilable', 'required')"
+                >Please Enter Availability</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="shelfNo">Shelf No:</label>
+            <input
+              type="number"
+              formControlName="shelfNo"
+              id="shelfNo"
+              class="form-control"
+              placeholder="Enter Shelf Number"
+              [class.is-invalid]="isInValidAndTouched('shelfNo')"
+              [class.is-valid]="isValidControl('shelfNo')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('shelfNo', 'required')"
+                >Please Enter Shelf Number</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="numOfCopies">Number of Copies:</label>
+            <input
+              type="number"
+              formControlName="numOfCopies"
+              id="numOfCopies"
+              class="form-control"
+              placeholder="Enter Number of Copies"
+              [class.is-invalid]="isInValidAndTouched('numOfCopies')"
+              [class.is-valid]="isValidControl('numOfCopies')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('numOfCopies', 'required')"
+                >Please Enter Number of Copies</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="publishingDate">Publishing Date:</label>
+            <input
+              type="date"
+              formControlName="publishingDate"
+              id="publishingDate"
+              class="form-control"
+              placeholder="Select Publish Date"
+              [class.is-invalid]="isInValidAndTouched('publishingDate')"
+              [class.is-valid]="isValidControl('publishingDate')"
+              required
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('publishingDate', 'required')"
+                >Please Select Publishing Date</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="image">Image:</label>
+            <input
+              type="file"
+              formControlName="image"
+              id="image"
+              class="form-control"
+              accept="image/*"
+              required
+              [class.is-invalid]="isInValidAndTouched('image')"
+              [class.is-valid]="isValidControl('image')"
+              required
+              (change)="onImageSelected($event)"
+            />
+            <div class="invalid-feedback">
+              <span *ngIf="isControlHasError('image', 'required')"
+                >Please Select an Image</span
+              >
+              <span *ngIf="isControlHasError('image', 'accept')"
+                >Only Image Files Are Allowed</span
+              >
+            </div>
+          </div>
+
+          <div class="invalid" *ngIf="errMsg">{{ errMsg }}</div>
+          <button type="submit" class="btn btn-prim">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

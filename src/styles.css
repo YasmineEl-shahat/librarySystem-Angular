@@ -8,6 +8,7 @@
 * {
   margin: 0;
   padding: 0;
+  text-transform: capitalize;
 }
 
 .btn-pink {
@@ -61,4 +62,7 @@ body {
 .card-title {
   font-weight: bold;
   font-size: 20px;
+}
+.btn-pink:focus{
+  box-shadow: 0 0 8px 0.1rem #e57277;
 }
