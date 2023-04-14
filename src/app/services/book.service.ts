@@ -17,13 +17,19 @@ export class BookService {
 
    }
 
-   getLatestBooks(){
+  getLatestBooks(){
     return this._apiService.get(`newBooks`)
-   }
-   getBook(id: any){
+  }
+  getBook(id: any){
     return this._apiService.get(`books/${id}`);
   }
   updateBook(id: any, book: any){
+    console.log(`books/${id}`);
     return this._apiService.patch(`books/${id}`, book);
   }
+
+  searchBook(formData: any){
+    return this._apiService.post(`bookSearchFilter`,formData);
+  }
+
 }

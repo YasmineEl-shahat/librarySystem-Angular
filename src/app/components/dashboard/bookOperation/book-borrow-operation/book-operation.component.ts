@@ -17,21 +17,21 @@ export class BorrowBookOperationComponent {
    this.getAllOperations();
   }
 
-  get totalPages(): number {
-    return Math.ceil(this.operations.length / this.pageSize);
-  }
+  // get totalPages(): number {
+  //   return Math.ceil(this.operations.length / this.pageSize);
+  // }
 
-  onPreviousClick() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
-  }
+  // onPreviousClick() {
+  //   if (this.currentPage > 1) {
+  //     this.currentPage--;
+  //   }
+  // }
 
-  onNextClick() {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-    }
-  }
+  // onNextClick() {
+  //   if (this.currentPage < this.totalPages) {
+  //     this.currentPage++;
+  //   }
+  // }
   getAllOperations() {
     this.bookOperarionService.allBorrowedBook().subscribe(
       (response: any) => {

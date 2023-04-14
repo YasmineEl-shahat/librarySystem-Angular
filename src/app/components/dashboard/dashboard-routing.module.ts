@@ -12,17 +12,17 @@ import { IsLoginGuard } from 'src/app/guards/is-login.guard';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
 import { EmployeeModule } from './employee/employee.module';
 import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.component';
-import { AddBorrowBookOperationComponent } from './bookOperation/borrow/add-borrow-book-operation/add-book-operation.component';
-import { BorrowBookOperationComponent } from './bookOperation/borrow/book-borrow-operation/book-operation.component';
-import { EditBorrowBookOperationComponent } from './bookOperation/borrow/edit-borrow-book-operation/edit-book-operation.component';
+import { BorrowBookOperationComponent } from './bookOperation/book-borrow-operation/book-operation.component';
 import { BookOperationModule } from './bookOperation/book-operation.module';
 import { MemberModule } from './member/member.module';
 import { AddMemberComponent } from './member/add-member/add-member.component';
 import { EditMemberComponent } from './member/edit-member/edit-member.component';
-import { BookModule } from '../book/book.module';
+// import { BookModule } from '../book/book.module';
+import { BookModule } from './book/book.module';
 import { BooksComponent } from './book/books/books.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
+import { AddBorrowOperationComponent } from './book/add-borrow-operation/add-borrow-operation.component';
 
 const routes: Routes = [
   {
@@ -47,25 +47,25 @@ const routes: Routes = [
         component: BorrowBookOperationComponent,
       },
       {
-        path: 'bookOperation/add-borrow-bookOperation',
-        component: AddBorrowBookOperationComponent,
+        path: 'book/add-borrow-bookOperation/:id',
+        component: AddBorrowOperationComponent,
       },
-      {
-        path: 'bookOperation/edit-borrow-bookOperation',
-        component: EditBorrowBookOperationComponent,
-      },
-      {
-        path: 'bookOperation/read',
-        component: BorrowBookOperationComponent,
-      },
-      {
-        path: 'bookOperation/add-read-bookOperation',
-        component: AddBorrowBookOperationComponent,
-      },
-      {
-        path: 'bookOperation/edit-read-bookOperation',
-        component: EditBorrowBookOperationComponent,
-      },
+      // {
+      //   path: 'bookOperation/edit-borrow-bookOperation',
+      //   component: EditBorrowBookOperationComponent,
+      // },
+      // {
+      //   path: 'bookOperation/read',
+      //   component: BorrowBookOperationComponent,
+      // },
+      // {
+      //   path: 'bookOperation/add-read-bookOperation',
+      //   component: AddBorrowBookOperationComponent,
+      // },
+      // {
+      //   path: 'bookOperation/edit-read-bookOperation',
+      //   component: EditBorrowBookOperationComponent,
+      // },
     ],
   },
 ];

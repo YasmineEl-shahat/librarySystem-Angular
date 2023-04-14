@@ -1,75 +1,180 @@
-<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+ <!-- <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <div class="form-group">
       <label for="_id">ID:</label>
-      <input type="number" class="form-control" id="_id" name="_id" required value="{{id}}" disabled>
+      <input type="number" class="form-control" id="_id" formControlName="_id" required value="{{id}}" >
     </div>
 
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" class="form-control" id="title" name="title" required value="{{book.title}}">
+      <input type="text" class="form-control" id="title" formControlName="title" required value="{{book.title}}"  >
     </div>
   
     <div class="form-group">
       <label for="author">Author:</label>
-      <input type="text" class="form-control" id="author" name="author" required value="{{book.auther}}">
+      <input type="text" class="form-control" id="author" formControlName="author" required value="{{book.auther}}"  >
     </div>
   
     <div class="form-group">
       <label for="publisher">Publisher:</label>
-      <input type="text" class="form-control" id="publisher" name="publisher" required value="{{book.publisher}}">
+      <input type="text" class="form-control" id="publisher" formControlName="publisher" required value="{{book.publisher}}">
     </div>
   
     <div class="form-group">
       <label for="publishingDate">Publishing Date:</label>
-      <input type="date" class="form-control" id="publishingDate" name="publishingDate" required value="{{book.publishingDate | date:'yyyy-MM-dd}}">
+      <input type="date" class="form-control" id="publishingDate" formControlName="publishingDate" required value="{{book.publishingDate | date}}">
     </div>
   
     <div class="form-group">
       <label for="category">Category:</label>
-      <input type="text" class="form-control" id="category" name="category" required value="{{book.category}}">
+      <input type="text" class="form-control" id="category" formControlName="category" required value="{{book.category}}">
     </div>
   
     <div class="form-group">
       <label for="edition">Edition:</label>
-      <input type="number" class="form-control" id="edition" name="edition" required value="{{book.edition}}">
+      <input type="number" class="form-control" id="edition" formControlName="edition" required value="{{book.edition}}">
     </div>
   
     <div class="form-group">
       <label for="pages">Pages:</label>
-      <input type="number" class="form-control" id="pages" name="pages" required value="{{book.pages}}">
+      <input type="number" class="form-control" id="pages" formControlName="pages" required value="{{book.pages}}">
     </div>
   
-    <!-- <div class="form-group">
+     <div class="form-group">
       <label for="image">Image:</label>
-      <input type="text" class="form-control" id="image" name="image" required value="{{book.image}}">
-    </div> -->
+      <input type="text" class="form-control" id="image" formControlName="image" required value="{{book.image}}">
+    </div> 
   
     <div class="form-group">
       <label for="available">Available:</label>
-      <input type="number" class="form-control" id="available" name="available" required value="{{book.avilable}}">
+      <input type="number" class="form-control" id="available" formControlName="available" required value="{{book.avilable}}">
     </div>
   
     <div class="form-group">
       <label for="numOfCopies">Number of Copies:</label>
-      <input type="number" class="form-control" id="numOfCopies" name="numOfCopies" required value="{{book.numOfCopies}}">
+      <input type="number" class="form-control" id="numOfCopies" formControlName="numOfCopies" required value="{{book.numOfCopies}}">
     </div>
   
     <div class="form-group">
       <label for="shelfNo">Shelf Number:</label>
-      <input type="number" class="form-control" id="shelfNo" name="shelfNo" required value="{{book.shelfNo}}">
+      <input type="number" class="form-control" id="shelfNo" formControlName="shelfNo" required value="{{book.shelfNo}}">
     </div>
-  
+   
     <div class="form-group">
       <label for="noOfBorrowing">Number of Borrowings:</label>
-      <input type="number" class="form-control" id="noOfBorrowing" name="noOfBorrowing" required value="{{book.noOfBorrowing}}">
+      <input type="number" class="form-control" id="noOfBorrowing" formControlName="noOfBorrowing" required value="{{book.noOfBorrowing}}">
     </div>
   
     <div class="form-group">
       <label for="noOfReading">Number of Readings:</label>
-      <input type="number" class="form-control" id="noOfReading" name="noOfReading" required value="{{book.noOfReading'}}">
+      <input type="number" class="form-control" id="noOfReading" formControlName="noOfReading" required  value="{{book.noOfReading}}">
     </div>
-  
+   
     <button type="submit" class="btn btn-dark">Save Changes</button>
 
   </form>
+    -->
+
+
+   <!-- <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="_id">ID:</label>
+      <input type="number" class="form-control" id="_id" formControlName="_id" required [value]="id">
+    </div>
   
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" formControlName="title" required [value]="book.title">
+    </div>
+  
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <input type="text" class="form-control" id="author" formControlName="author" required [value]="book.auther">
+    </div>
+  
+    <div class="form-group">
+      <label for="publisher">Publisher:</label>
+      <input type="text" class="form-control" id="publisher" formControlName="publisher" required [value]="book.publisher">
+    </div>
+  
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <input type="text" class="form-control" id="category" formControlName="category" required [value]="book.category">
+    </div>
+  
+    <div class="form-group">
+      <label for="edition">Edition:</label>
+      <input type="number" class="form-control" id="edition" formControlName="edition" required [value]="book.edition">
+    </div>
+  
+    <div class="form-group">
+      <label for="pages">Pages:</label>
+      <input type="number" class="form-control" id="pages" formControlName="pages" required [value]="book.pages">
+    </div>
+  
+    <div class="form-group">
+      <label for="avilable">Available:</label>
+      <input type="number" class="form-control" id="avilable" formControlName="avilable" required [value]="book.avilable">
+    </div>
+  
+    <div class="form-group">
+      <label for="numOfCopies">Number of Copies:</label>
+      <input type="number" class="form-control" id="numOfCopies" formControlName="numOfCopies" required [value]="book.numOfCopies">
+    </div>
+  
+    <div class="form-group">
+      <label for="shelfNo">Shelf Number:</label>
+      <input type="number" class="form-control" id="shelfNo" formControlName="shelfNo" required [value]="book.shelfNo">
+    </div>
+  
+    <button type="submit" class="btn btn-dark">Save Changes</button>
+  </form>
+   -->
+   <div class="container">
+    <h2>Edit Profile</h2>
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="auther">Author </label>
+      <input type="text" class="form-control" id="auther" formControlName="auther" value={{book.auther}}>
+    </div>
+    <div class="form-group">
+      <label for="publisher">publisher </label>
+      <input type="text" class="form-control" id="publisher" formControlName="publisher" value={{book.publisher}}>
+    </div>
+    <div class="form-group">
+      <label for="category">category </label>
+      <input type="text" class="form-control" id="category" formControlName="category" value={{book.category}}>
+    </div>
+    <div class="form-group">
+      <label for="numOfCopies">numOfCopies</label>
+      <input type="number" class="form-control" id="numOfCopies" formControlName="numOfCopies" value={{book.numOfCopies}}>
+    </div>
+    <!-- <div class="form-group">
+      <label for="birthdate">Birthdate</label>
+      <input type="date" class="form-control" id="birthdate" formControlName="birthdate" value={{book.birthdate}} >
+    </div> -->
+    <div class="form-group">
+      <label for="pages">pages</label>
+      <input type="text" class="form-control" id="pages" formControlName="pages" required value={{book.pages}}>
+    </div>
+    <div class="form-group">
+      <label for="edition">edition</label>
+      <input type="number" class="form-control" id="edition" formControlName="edition" required value={{book.edition}}>
+    </div>
+    <div class="form-group">
+      <label for="avilable">avilable</label>
+      <input type="number" class="form-control" id="avilable" formControlName="avilable" required value={{book.avilable}}>
+    </div>
+    
+    <div class="form-group">
+      <label for="shelfNo">shelfNo</label>
+      <input type="number" class="form-control" id="shelfNo" formControlName="shelfNo" required value={{book.shelfNo}}>
+    </div>
+    
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" class="form-control-file" id="image" name="image" (change)="onFileSelected($event)" value="{{book.image}}">
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: #e57277; outline:#e57277; border:#e57277">Update</button>
+  </form>
+</div>
+    
