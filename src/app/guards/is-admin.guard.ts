@@ -14,12 +14,13 @@ export class IsAdminGuard implements CanActivate {
       return new Promise(resolve=>{
       let admin:any=this._userCredintialService.getCredintial();
       let role=admin.role;
-      if(role != "admin" ||role != "badmin"){
-        this._router.navigateByUrl('/notFound');
-      return resolve(false)
+      if(role == "admin" || role == "badmin"){
+        return resolve(true)
       }
       else
-      return resolve(true)
+      this._router.navigateByUrl('/notFound');
+      return resolve(false)
+      
   })
   }
   
