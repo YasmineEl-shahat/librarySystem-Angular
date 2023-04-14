@@ -22,3 +22,6 @@ select:focus {
   font-size: 18px;
   color: #e57277;
 }
+.card-bg{
+  background-color: #FAF8F8;
+}
