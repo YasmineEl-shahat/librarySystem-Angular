@@ -1,3 +1,4 @@
+import { UserCredintialService } from './../../../../services/user-credintial.service';
 import { BookOperationService } from './../../../../services/book-operation.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,24 +11,25 @@ import { BookOperation } from 'src/app/models/book-operation';
   styleUrls: ['./add-borrow-operation.component.css'],
 })
 export class AddBorrowOperationComponent implements OnInit {
-  bookOperation: BookOperation | null = null;
+  bookOperation: BookOperation  = new BookOperation();
   errMsg: any = '';
   operationForm: FormGroup = new FormGroup({});
-  id: number = 1;
+  id: any ;
   constructor(
     private _activatedRoute: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private bookOperationService: BookOperationService
+    private bookOperationService: BookOperationService,
+    private userCredintialService :UserCredintialService
   ) {}
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe((params) => {
-      let id = params.get('id');
-      console.log(id);
+      this.id = params.get('id');
+      console.log(this.id);
     });
 
     this.operationForm = this.fb.group({
-      memberId: ['', [Validators.required]],
+      member_id: ['', [Validators.required]],
       deadlineDate: [
         // this.operationForm?.deadlineDate,
         Validators.required,
@@ -35,8 +37,7 @@ export class AddBorrowOperationComponent implements OnInit {
       ],
     });
 
-    // const i =token.id;
-    // console.log(token.id)
+    
   }
 
   //**********form validation functions*******
@@ -60,4 +61,26 @@ export class AddBorrowOperationComponent implements OnInit {
     );
   }
   //*********End of form validation functions**********
+
+  async operation() {
+    let formData = {};
+    formData = { ...formData, member_id: this.operationForm.value.member_id };
+    formData = { ...formData, book_id: Number(this.id )};
+    formData = { ...formData, deadlineDate: this.operationForm.value.deadlineDate };
+
+    await this.bookOperationService
+      .addBorrowOperation(formData )
+      .subscribe(
+        async (response: any) => {
+          // console.log(response.data.deadlineDate)
+          this.router.navigateByUrl('/dashboard/bookOperation/borrow');
+        },
+        (error: any) => {
+          this.errMsg = error.error.message;
+          console.log(this.errMsg);
+        }
+      );
+  }
+
+
 }

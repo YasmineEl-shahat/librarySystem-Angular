@@ -6,30 +6,29 @@
                 <form [formGroup]="operationForm" class="form">
 
 
-
+                    <!-- <input hidden value="{{ id }}" formControlName="boo" > -->
                     <div class="form-group">
                         <label for="deadlineDate">Deadline Date:</label>
                         <input type="date" formControlName="deadlineDate" id="deadlineDate" class="form-control"
                             placeholder="Select deadline date" [class.is-invalid]="isInValidAndTouched('deadlineDate')"
                             [class.is-valid]="isValidControl('deadlineDate')" required
-                            value="{{ bookOperation?.deadlineDate }}" />
+                            value="2023-03-18" />
 
                         <div class="invalid-feedback">
                             <span *ngIf="isControlHasError('deadlineDate', 'required')">Please select your deadline
                                 date</span>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label for="memberId">Member Id:</label>
-                        <input type="number" min=1 formControlName="memberId" id="memberId" class="form-control"
-                            placeholder="Enter Member Id" [class.is-invalid]="isInValidAndTouched('memberId')"
-                            [class.is-valid]="isValidControl('memberId')" value="{{ bookOperation?.memberId }}"
+                        <label for="member_id">Member Id:</label>
+                        <input type="number" min=1 formControlName="member_id" id="member_id" class="form-control"
+                            placeholder="Enter Member Id" [class.is-invalid]="isInValidAndTouched('member_id')"
+                            [class.is-valid]="isValidControl('member_id')" 
                             required />
-                        <div class="invalid-feedback" *ngIf="isControlHasError('memberId', 'required')">
+                        <div class="invalid-feedback" *ngIf="isControlHasError('member_id', 'required')">
                             memberId is required.
                         </div>
-                        <div class="invalid-feedback" *ngIf="isControlHasError('memberId', 'memberId')">
+                        <div class="invalid-feedback" *ngIf="isControlHasError('member_id', 'member_id')">
                             Invalid memberId
                         </div>
                     </div>
@@ -38,7 +37,7 @@
 
                     <div class="invalid" *ngIf="errMsg">{{ errMsg }}</div>
 
-                    <button type="submit" [disabled]="operationForm.invalid" class="btn btn-prim">
+                    <button type="submit" [disabled]="operationForm.invalid" class="btn btn-prim m-2" (click)="operation()">
                         Submit
                     </button>
                 </form>

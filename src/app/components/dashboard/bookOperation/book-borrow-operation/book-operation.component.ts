@@ -10,7 +10,7 @@ import { BookOperationService } from 'src/app/services/book-operation.service';
 export class BorrowBookOperationComponent {
   operations: BookOperation[] = [];
   currentPage = 1; // current page number
-  pageSize = 3; // number of items to display per page
+  pageSize = 5; // number of items to display per page
 
   constructor(private bookOperarionService: BookOperationService) {}
   ngOnInit() {

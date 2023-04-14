@@ -45,7 +45,7 @@
         <div class="bookContainer w-100 h-50">
           <a class="bookLink"  routerLink="/book/details/1">
           <img src="../assets/images/slider3.jpg" class="bookImg w-100 h-100" alt="Snow">
-          <button class="btn imgbtn">Button</button>
+          <button class="btn imgbtn">Details</button>
         </a>
         </div>
         <div class="h5" *ngIf="book.title">{{book.title}}</div>
@@ -62,24 +62,40 @@
 
   </div>
 
-  <div class="row mt-5">
+  <div class="row mt-5 divider text-center d-flex justify-content-center">
+    <div class="mt-5  rounded-circle pink-background p-2 quot-circle">
+      <i class=" fa fa-quote-left fs-2 text-white"></i>
+    </div>
+    <div class="text-white">“The more that you read, the more things you will know. The more that you learn, the more places you’ll go”</div>
+    <div class="text-white">“Books are a uniquely portable magic.”</div>
+
+  </div>
+
+  <div class="row mt-5 ">
     <div class="col card-header p-3 h4">NEW ARRIVALS</div>
    </div>
 
    <div class="row mt-5"  *ngIf="latestBooks.length > 0">
     
-    <div class="col-md-4 col-sm-12 border p-2" *ngFor="let book of latestBooks">
-      <img class="w-100 h-50" src="../assets/images/slider2.jpg">
+    <div class="col-md-3 col-sm-12 border p-2" *ngFor="let book of latestBooks">
+      <div class="bookContainer w-100 h-50">
+        <a class="bookLink"  routerLink="/book/details/1">
+        <img src="../assets/images/slider3.jpg" class="bookImg w-100 h-100" alt="Snow">
+        <button class="btn imgbtn">Details</button>
+      </a>
+      </div>
       <div class="h5" *ngIf="book.title">{{book.title}}</div>
     <div >
       
-      <li class="list_type_none pink-text"><i class="fa fa-calendar"></i> <span class=" ms-2"*ngIf="book.createdAt">{{book.createdAt |date}}</span> </li>
+      <li class="list_type_none pink-text"><i class="fa fa-calendar"></i> <span class=" ms-2" *ngIf="book.createdAt">{{book.createdAt |date}} </span> </li>
     </div>
     <p *ngIf="book.auther">Auther: {{book.auther}}</p>
-  <a class="link_decoration_none" *ngIf="book._id"  routerLink="/book/details/{{book._id}}">Show More  &raquo;</a>
+    <a class="link_decoration_none "*ngIf="book._id"  routerLink="/book/details/{{book._id}}">Show More  &raquo;</a>
 
   </div>
    </div>
+
+   
     
 
    </div>
