@@ -26,6 +26,7 @@ export class ActivateComponent {
   ) {}
 
   ngOnInit(): void {
+
     this.activateForm = this._formBuilder.group({
       image: ['', [Validators.required]],
       password: [

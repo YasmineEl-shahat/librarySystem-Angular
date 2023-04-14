@@ -26,7 +26,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let operation of operations">
+          <tr *ngFor="let operation of operations| paginate: { itemsPerPage: 4, currentPage: currentPage }">
             <td>{{ operation._id }}</td>
             <td>{{ operation.bookId.title }}</td>
             <td>{{ operation.memberId?.fullName }}</td>

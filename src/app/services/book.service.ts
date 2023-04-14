@@ -31,5 +31,9 @@ export class BookService {
   searchBook(formData: any){
     return this._apiService.post(`bookSearchFilter`,formData);
   }
+ 
+  delete(id:number){
+    return this._apiService.delete(`books/${id}`);
+  }
 
 }
