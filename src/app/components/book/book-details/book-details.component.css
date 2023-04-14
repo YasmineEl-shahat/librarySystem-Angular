@@ -1,12 +1,20 @@
-.main-book{
+/* .main-book {
   padding-top: 100px;
-}
-.title
-{
+} */
+.title {
   font-size: large;
+  /* padding-bottom: 2rem; */
   font-size: 50px;
   font-weight: 500;
 }
-.info span{
+.info span {
   font-weight: bold;
+}
+.bg{
+  background-color: #FAF8F8;
+}
+
+.main-container{
+  height: auto;
+  
 }
