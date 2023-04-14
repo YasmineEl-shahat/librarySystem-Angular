@@ -23,19 +23,21 @@ import { BooksComponent } from './book/books/books.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
 import { AddBorrowOperationComponent } from './book/add-borrow-operation/add-borrow-operation.component';
+import { IsBaseAdminGuard } from 'src/app/guards/is-base-admin.guard';
+import { IsAdminGuard } from 'src/app/guards/is-admin.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardLayoutComponent,
     children: [
-      { path: 'admin/admin', component: AdminComponent },
-      { path: 'admin/basic-admin', component: BasicAdminComponent },
-      { path: 'admin/add-admin', component: AddAdminComponent },
-      { path: 'admin/edit-admin/:id', component: EditAdminComponent },
-      { path: 'employee/employee', component: EmployeeComponent },
-      { path: 'employee/add-employee', component: AddEmployeeComponent },
-      { path: 'employee/edit-employee/:id', component: EditEmployeeComponent },
+      { path: 'admin/admin', component: AdminComponent,canActivate:[IsBaseAdminGuard] },
+      { path: 'admin/basic-admin', component: BasicAdminComponent,canActivate:[IsBaseAdminGuard]},
+      { path: 'admin/add-admin', component: AddAdminComponent,canActivate:[IsBaseAdminGuard] },
+      { path: 'admin/edit-admin/:id', component: EditAdminComponent,canActivate:[IsBaseAdminGuard] },
+      { path: 'employee/employee', component: EmployeeComponent,canActivate:[IsAdminGuard] },
+      { path: 'employee/add-employee', component: AddEmployeeComponent,canActivate:[IsAdminGuard]  },
+      { path: 'employee/edit-employee/:id', component: EditEmployeeComponent,canActivate:[IsAdminGuard]  },
       { path: 'member/member', component: MemberComponent },
       { path: 'member/add-member', component: AddMemberComponent },
       { path: 'member/edit-member/:id', component: EditMemberComponent },

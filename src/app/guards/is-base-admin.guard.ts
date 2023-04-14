@@ -6,7 +6,7 @@ import { UserCredintialService } from '../services/user-credintial.service';
 @Injectable({
   providedIn: 'root'
 })
-export class IsStaffGuard implements CanActivate {
+export class IsBaseAdminGuard implements CanActivate {
   constructor(private _userCredintialService:UserCredintialService,private _router:Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -14,7 +14,7 @@ export class IsStaffGuard implements CanActivate {
       return new Promise(resolve=>{
         let admin:any=this._userCredintialService.getCredintial();
         let role=admin.role;
-        if(role == "member"){
+        if(role != "badmin"){
           this._router.navigateByUrl('/notFound');
         return resolve(false)
         }
