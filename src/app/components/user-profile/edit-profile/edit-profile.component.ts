@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import the FormGroup and FormBuilder classes
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserCredintialService } from 'src/app/services/user-credintial.service';
 import { Router } from '@angular/router';
 
