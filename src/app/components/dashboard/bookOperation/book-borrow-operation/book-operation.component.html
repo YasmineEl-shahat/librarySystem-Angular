@@ -26,11 +26,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let operation of operations.slice((currentPage - 1) * pageSize, currentPage * pageSize)">
+          <tr *ngFor="let operation of operations">
             <td>{{ operation._id }}</td>
-            <td>{{ operation.bookId?.title }}</td>
+            <td>{{ operation.bookId.title }}</td>
             <td>{{ operation.memberId?.fullName }}</td>
-            <td>{{ operation.employeeId?.fname }} {{ operation.employeeId?.lname }}</td>
+            <td>{{ operation.employeeId.fname }} {{ operation.employeeId.lname }}</td>
             <td>{{ operation.deadlineDate | date }}</td>
             <td>{{ operation.returnDate | date }}</td>
             <td>{{ operation.type }} </td>

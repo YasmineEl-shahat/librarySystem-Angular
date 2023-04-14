@@ -11,10 +11,10 @@ import { BookOperation } from 'src/app/models/book-operation';
   styleUrls: ['./add-borrow-operation.component.css'],
 })
 export class AddBorrowOperationComponent implements OnInit {
-  // bookOperation: BookOperation | null = null;
+  bookOperation: BookOperation  = new BookOperation();
   errMsg: any = '';
   operationForm: FormGroup = new FormGroup({});
-  id: any = 1;
+  id: any ;
   constructor(
     private _activatedRoute: ActivatedRoute,
     private router: Router,
@@ -24,7 +24,7 @@ export class AddBorrowOperationComponent implements OnInit {
   ) {}
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe((params) => {
-      this.id = Number(params.get('id'));
+      this.id = params.get('id');
       console.log(this.id);
     });
 
@@ -63,21 +63,17 @@ export class AddBorrowOperationComponent implements OnInit {
   //*********End of form validation functions**********
 
   async operation() {
-    const token: any = this.userCredintialService.getCredintial();
-   
-    const formData = new FormData();
-   console.log(this.operationForm.value.deadlineDate)
-    formData.append('deadlineDate', this.operationForm.value.deadlineDate);
-    formData.append('member_id', this.operationForm.value.member_id);
-    formData.append('book_id', this.id);
-    console.log(formData.get('member_id'),'member_id')
-    console.log(formData.get('book_id'),'book_id')
+    let formData = {};
+    formData = { ...formData, member_id: this.operationForm.value.member_id };
+    formData = { ...formData, book_id: Number(this.id )};
+    formData = { ...formData, deadlineDate: this.operationForm.value.deadlineDate };
+
     await this.bookOperationService
       .addBorrowOperation(formData )
       .subscribe(
         async (response: any) => {
           // console.log(response.data.deadlineDate)
-          this.router.navigateByUrl('/dashboardbook/books');
+          this.router.navigateByUrl('/dashboard/bookOperation/borrow');
         },
         (error: any) => {
           this.errMsg = error.error.message;
