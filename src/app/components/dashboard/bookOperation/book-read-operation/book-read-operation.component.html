@@ -1,7 +1,7 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800 fw-bold">Read</h1>
-   
+
   </div>
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
@@ -21,7 +21,7 @@
               <th>ReturnDate</th>
               <th>Type</th>
               <th>Return</th>
-            
+
             </tr>
           </thead>
           <tbody>
@@ -33,10 +33,11 @@
               <td>{{ operation.deadlineDate | date }}</td>
               <td>{{ operation.returnDate | date }}</td>
               <td>{{ operation.type }} </td>
-              <td>{{ operation.return }}</td>
-              
+              <td *ngIf='operation.return==true'>{{ operation.return }}</td>
+              <td *ngIf='operation.return==false'><button (click)='returnBook(operation.bookId,operation.memberId)' class="btn btn-outline-info m-1">Return</button></td>
+
             </tr>
-  
+
           </tbody>
         </table>
       </div>
@@ -47,4 +48,3 @@
   </div>
 
 
-  

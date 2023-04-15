@@ -37,7 +37,7 @@ export class AddBorrowOperationComponent implements OnInit {
       ],
     });
 
-    
+
   }
 
   //**********form validation functions*******
